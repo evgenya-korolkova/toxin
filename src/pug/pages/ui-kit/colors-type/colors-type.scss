@@ -1,0 +1,54 @@
+// @import '@/scss/fonts';
+@import '@/fonts/montserrat';
+@import '@/scss/colors';
+@import '@/scss/type';
+@import '@/scss/base';
+
+.colors-type {
+    display: flex;
+    justify-content: space-between;
+}
+
+.color-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.color-item__color {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    margin-right: 40px;
+}
+
+.color-item__text {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.47;
+    color: $dark_shade_100;
+
+    span {
+        font-weight: 400;
+    }
+}
+
+.type-item {
+    display: flex;
+    margin-bottom: 50px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.type-item__title {
+    width: 40px;
+    font-weight: 400;
+    color: $dark_shade_25;
+    text-align: right;
+    text-transform: capitalize;
+    margin-right: 30px;
+}

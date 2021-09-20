@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+// html,
+body {
+    font-family: Montserrat, sans-serif;
+    background-color: #f0f0f0;
+
+    margin: 0;
+    padding: 0;
+}
+
+a, a:hover {
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+a {
+    color: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;    
+}
+
+img {
+    display: block;
+    // max-width: 100%;
+    // height: auto;
+}
+
+button, input{
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+    background-color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    padding: 140px;
+    // max-width: 420px;
+
+    // // Медиа запрос для планшетов
+    // @media (min-width: 768px) {
+    //     padding: 0 30px;
+    //     max-width: 900px;
+    // }
+
+    // // Медиа запрос для десктопов
+    // @media (min-width: 1200px) {
+    //     padding: 0;
+        max-width: 1440px;
+        background-color: rgb(240, 212, 179);
+    // }
+}
+
+.none {
+    display: none;
+}
+
+.none-scroll {
+    overflow: hidden;
+}
+
+
+//  layout-ui-kit
+.ui-container {
+    position: relative;
+    max-width: 1440px;
+    padding: 140px;
+    background-color: rgb(240, 212, 179);
+    margin: 0 auto;
+}
+
+.ui-logo {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}

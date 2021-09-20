@@ -1,0 +1,35 @@
+extends ../../../layout/layout-ui-kit.pug
+//- extends /layout/layout-ui-kit.pug
+
+block variables
+    - var title = 'Colors & Type'
+
+block content
+    - var colors = [{color: '#1F2041', text: 'Dark Shade 100%'}, 
+    -               {color: '#1F2041BF', text: 'Dark Shade 75%'}, 
+    -               {color: '#1F204180', text: 'Dark Shade 50%'}, 
+    -               {color: '#1F204140', text: 'Dark Shade 25%'}, 
+    -               {color: '#1F20410D', text: 'Dark Shade 5%'}, 
+    -               {color: '#BC9CFF', text: 'Purple'}, 
+    -               {color: '#6FCF97', text: 'Green'}]
+
+    - var type = [{class: 'h1', text: 'This one is the sub-section or<br>widget title'}, 
+    -             {class: 'h2', text: 'Next one is the item title inside<br>widgets'}, 
+    -             {class: 'h3', text: 'This is a label or CTA text'}, 
+    -             {class: 'body', text: 'This is the body text which is used for most<br>of the design, like paragraphs, lists, etc.'}]
+
+    .colors-type
+        .colors
+            each item in colors
+                .color-item
+                    .color-item__color(style=`background-color: ${item.color}`)
+                    p.color-item__text #{item.text}
+                        br
+                        span #{item.color.substr(0,7)}
+         
+        .type
+            each item in type 
+                .type-item 
+                    p.type-item__title(class=`${item.class}`) #{item.class}
+                    p.type-item__text(class=`${item.class}`) !{item.text}
+
