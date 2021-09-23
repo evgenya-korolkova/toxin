@@ -18,6 +18,7 @@ body {
 a, a:hover {
     text-decoration: none;
     transition: 0.5s;
+    outline: none;
 }
 
 a {
@@ -42,10 +43,15 @@ img {
 }
 
 button, input{
-    outline: none;
-    color: inherit;
+    padding: 0;
+    border: none;
     font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
     background-color: inherit;
+
+    outline: none;
 }
 
 button {
@@ -53,9 +59,8 @@ button {
 }
 
 .container {
-    position: relative;
     margin: 0 auto;
-    padding: 140px;
+    padding: 0 140px;
     // max-width: 420px;
 
     // // Медиа запрос для планшетов
@@ -81,13 +86,27 @@ button {
 }
 
 
-//  layout-ui-kit
+// ------------------- input margin-bottom -------------------
+.input-mb-5 {
+    margin-bottom: 20px;
+}
+
+.input-mb-20 {
+    margin-bottom: 20px;
+}
+
+.input-mb-30 {
+    margin-bottom: 30px;
+}
+
+
+// ------------------- layout-ui-kit -------------------
 .ui-container {
     position: relative;
     max-width: 1440px;
+    margin: 0 auto;
     padding: 140px;
     background-color: rgb(240, 212, 179);
-    margin: 0 auto;
 }
 
 .ui-logo {

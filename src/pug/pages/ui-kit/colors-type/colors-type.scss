@@ -1,8 +1,8 @@
-// @import '@/scss/fonts';
 @import '@/fonts/montserrat';
 @import '@/scss/colors';
 @import '@/scss/type';
 @import '@/scss/base';
+
 
 .colors-type {
     display: flex;
@@ -29,7 +29,7 @@
     font-size: 19px;
     font-weight: 700;
     line-height: 1.47;
-    color: $dark_shade_100;
+    color: $dark-shade-100;
 
     span {
         font-weight: 400;
@@ -47,7 +47,7 @@
 .type-item__title {
     width: 40px;
     font-weight: 400;
-    color: $dark_shade_25;
+    color: $dark-shade-25;
     text-align: right;
     text-transform: capitalize;
     margin-right: 30px;

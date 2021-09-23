@@ -1,0 +1,22 @@
+.text-field__label span {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.text-field__input {
+    width: 100%;
+    height: $input-height;
+    padding: 0px $input-padding;
+
+    border: 1px solid $dark-shade-25;
+    border-radius: $input-border-radius;
+    background-color: $input-background;
+
+    &:hover, &:focus {
+        border-color: $dark-shade-50;
+    }
+
+    &::placeholder {
+        color: $dark-shade-25;
+    }
+}

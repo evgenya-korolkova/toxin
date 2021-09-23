@@ -1,0 +1,8 @@
+mixin text-field(label="", attr={}, style={})
+
+    .text-field
+        label.text-field__label
+            if label
+                span.h3= label
+                br
+            input.text-field__input.body(style=style)&attributes(attr)

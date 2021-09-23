@@ -1,0 +1,15 @@
+mixin dropdown(label="", attr={}, style={})
+
+    - attr.disabled = true
+    //- заполнить значение attr.value
+    - value = "Сколько гостей"
+
+    .dropdown
+        label.dropdown__label
+            if label
+                span.h3= label 
+                br
+            .dropdown__input.body(tabindex="0")= value
+            //- input.dropdown__input.body(style=style)&attributes(attr)
+            .dropdown__button    
+            //- button(type="button" tabindex="-1").dropdown__button    

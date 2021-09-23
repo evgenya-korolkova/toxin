@@ -8,7 +8,8 @@ console.log('IS DEV: ', process.env.NODE_ENV);
 
 module.exports = {
     entry: {
-        'colors-type': './src/pug/pages/ui-kit/colors-type/colors-type.js',
+        // 'colors-type': './src/pug/pages/ui-kit/colors-type/colors-type.js',
+        'form-elements': './src/pug/pages/ui-kit/form-elements/form-elements.js',
         // entry: ['@babel/polyfill', './src/index.js'],
     },
 
@@ -20,16 +21,22 @@ module.exports = {
 
     devServer: {
         watchFiles: ['src/**/*.pug'], 
-        open: ['colors-type/colors-type.html'], //  --open /colors-type/colors-type.html
+        // open: ['colors-type/colors-type.html', 'form-elements/form-elements.html'], //  --open /colors-type/colors-type.html
+        open: ['form-elements/form-elements.html'], //  --open /colors-type/colors-type.html
     },
 
     devtool: isDev ? 'source-map' : false,
   
     plugins: [
+        // new HtmlWebpackPlugin({
+        //     template: './src/pug/pages/ui-kit/colors-type/colors-type.pug',
+        //     filename: 'colors-type/colors-type.html',
+        //     chunks: 'colors-type',
+        // }),
         new HtmlWebpackPlugin({
-            template: './src/pug/pages/ui-kit/colors-type/colors-type.pug',
-            filename: 'colors-type/colors-type.html',
-            chunks: 'colors-type',
+            template: './src/pug/pages/ui-kit/form-elements/form-elements.pug',
+            filename: 'form-elements/form-elements.html',
+            chunks: 'form-elements',
         }),
         new MiniCssExtractPlugin({
             filename: '[name]/[name].css',
@@ -75,7 +82,7 @@ module.exports = {
                 use: {
                         loader: 'pug-loader',
                         options: {
-                            // basedir: path.resolve(__dirname, 'src/pug'),
+                            basedir: path.resolve(__dirname, 'src/pug'),
                         }
                     }
             },

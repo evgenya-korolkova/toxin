@@ -1,0 +1,39 @@
+@import '@/fonts/montserrat';
+@import '@/scss/colors';
+@import '@/scss/type';
+@import '@/scss/base';
+
+@import '@/pug/mixins/text-field/text-field';
+@import '@/pug/mixins/subscr-text-field/subscr-text-field';
+@import '@/pug/mixins/dropdown/dropdown';
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.col {
+    width: 320px;
+    // background-color: lightyellow;
+}
+
+.col-1 {
+    width: 290px;
+
+    height: 500px;
+    background-color: lightcoral;
+}
+
+.col-2 {
+    width: 710px;
+
+    height: 500px;
+    background-color: lightcoral;
+}
+
+
+
