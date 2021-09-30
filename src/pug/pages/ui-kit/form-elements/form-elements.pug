@@ -10,41 +10,45 @@ block content
 
     .row
         .col
-            .input-mb-20
+            .input_mb_20
                 +text-field("text field", {placeholder: "Email"}, {color: "red"})
 
-            .input-mb-20
+            .input_mb_20
                 +text-field("text field", {placeholder: "password", value: "This is pretty awesome", autofocus: true})
 
-            .input-mb-20
-                +text-field("dropdown", {placeholder: "disabled: true", value: "disabled: true", disabled: true})
+            //- .input_mb_20
+            //-     +text-field("dropdown", {placeholder: "disabled: true", value: "disabled: true", disabled: true})
 
-            //- .input-mb-20
-            //-     +text-field("masked text field", {type: "date", pattern: "", placeholder: "ДД.ММ.ГГГГ"})
-
-            .input-mb-20
+            .input_mb_20
                 +text-field("text field", {value: "Константин Кончтантиновичч Константинопольский"})
-
             
-            .input-mb-20
+            .input_mb_20
                 +subscr-text-field("subscription text field", {value: "Константин Кончтантиновичч Константинопольский"})    
 
-            .input-mb-20
-                +dropdown("dropdown", {value: "Константин Кончтантиновичч Константинопольский"})    
-
-            .input-mb-20
-                +text-field("text field2", {placeholder: "Email"}, {color: "red"})    
-
-            select
-                option(value="1")= "HTML"     
-                option(value="2" )= "CSS"     
-                option(value="3")= "JS"     
-                option(value="4")= "PHP"  
-
-            .input-mb-20
-                +text-field("text field2", {placeholder: "Email"}, {color: "red"})       
+            .input_mb_130
+                +dropdown("гости", {type: "guests"})    
 
         .col
+            .input_mb_20
+                +text-field("text field2", {placeholder: "Email1"}, {color: "red"})    
+
+            .input_mb_20
+                label.h3 Select<br>
+                    select
+                        option(value="1")= "HTML верстка верстка верстка"     
+                        option(value="2" )= "CSS"     
+                        option(value="3")= "JS"     
+                        option(value="4")= "PHP"  
+
+            .input_mb_20
+                +text-field("text field2", {placeholder: "Email2"}, {color: "red"})    
+
+            .input_mb_20
+                +subscr-text-field("subscription text field", {value: "Константин Кончтантиновичч Константинопольский"}) 
+
+            .input_mb_130
+                +dropdown("удобства номера", {type: "rooms"})             
+
         .col
 
 

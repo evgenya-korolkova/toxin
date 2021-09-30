@@ -8,6 +8,7 @@
 }
 
 .dropdown__input {
+    position: relative;
     width: 100%;
     height: $input-height;
     padding-left: $input-padding;
@@ -16,26 +17,30 @@
     border: 1px solid $dark-shade-25;
     border-radius: $input-border-radius;
     background-color: $input-background;
+    text-align: left;
 
     &:hover, &:focus {
         border-color: $dark-shade-50;
     }
 
-    &::placeholder {
-        color: $dark-shade-25;
-    }
-
-    outline: none;
-    line-height: $input-height;
+    // outline: none;
+    // line-height: $input-height;
 }
 
-.dropdown__button {
+.dropdown__input_active {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-color: $dark-shade-50;
+}
+
+.dropdown__input:after {
     position: absolute;
-    // display: block;
+    display: block;
+    content: "";
     height: $input-height;
     width: $input-height;
     right: 0px;
-    bottom: 0px;
+    bottom: -1px;
     background-image: url('@/pug/mixins/dropdown/expand.svg');
     background-repeat: no-repeat;
     background-position: center;
@@ -44,6 +49,88 @@
         border: 1px solid $purple;
         border-radius: $input-border-radius;
     }
+}
 
+.dropdown__dropdown {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 100%;
+    transform: translateY(-1px);    // сместить вверх на 1px
+    padding: 6px 6px 6px $input-padding;
+
+    border: 1px solid $dark-shade-50;
+    border-radius: $input-border-radius;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background-color: $input-background;
+}
+
+.dropdown__list {
+    margin-bottom: 20px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.dropdown__list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 7px;
+    &:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+.dropdown__list-item-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 92px;
+}
+
+.dropdown__list-item-button {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid $dark-shade-25;
+    border-radius: 22px;
+
+    font-size: 18px;
+    font-weight: 400;
+    color: $dark-shade-50;
+
+    // text-align: center;
+    // line-height: 28px;
+
+    transition: 0.25s;
+
+    &:hover, &:focus {
+        border-color: $purple;
+        // border-color: $dark-shade-50;
+    }
+}
+
+.dropdown__list-item-button_disabled {
+    opacity: 0.38;
+    cursor: default;
     pointer-events: none;
+    border-color:  $dark-shade-25;
+}
+
+.dropdown__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.dropdown__button-clean, .dropdown__button-apply {
+    color: $purple;
+
+    &:hover, &:focus {
+        color: $dark-shade-50;
+    }
 }
