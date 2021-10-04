@@ -1,15 +1,15 @@
 mixin dropdown(label="", attr={}, style={})
 
-    //- - var guests = [{text: "взрослые", value: "0"}, {text: "дети", value: "0"}, {text: "младенцы", value: "0"}]
-    - var guests = {'взрослые': '2', 'дети': '2', 'младенцы': '0'}
+    - var guests = {'взрослые': '1', 'дети': '0', 'младенцы': '0'}
+    - var rooms = {'спальни': '1', 'кровати': '1', 'ванные комнаты': '1'}
+    - var data = {}
 
-    //- - var rooms = [{text: "спальни", value: "2"}, {text: "кровати", value: "2"}, {text: "ванные комнаты", value: "0"}]
-    - var rooms = [{text: "спальни", value: "2"}, {text: "кровати", value: "2"}, {text: "ванные комнаты", value: "0"}]
+    if attr.type === "guests"
+        - data = guests
+    else if attr.type === "rooms"
+        - data = rooms  
 
-    //- - var data = []
-    - var data = guests
-
-    .dropdown(data-type=attr.type data-values=data)
+    .dropdown(data-type=attr.type data-data=data)
         label.dropdown__label
             if label
                 span.h3= label 
@@ -21,33 +21,13 @@ mixin dropdown(label="", attr={}, style={})
                 //- each item in data
                 each value, key in data
                     .dropdown__list-item
-                        //- .dropdown__list-item-text.h3= item.text
                         .dropdown__list-item-text.h3= key
                         .dropdown__list-item-buttons
                             button.dropdown__list-item-button(data-key=key) -
-                            //- .dropdown__list-item-value.h3= item.value
                             .dropdown__list-item-value.h3(data-key=key)= value
                             button.dropdown__list-item-button(data-key=key) +
 
             if attr.type === "guests"
                 .dropdown__buttons
-                    button.dropdown__button-clean.h3(autofocus="true") очистить
+                    button.dropdown__button-clean.h3 очистить
                     button.dropdown__button-apply.h3 применить
-
-    //- - value = "Сколько гостей"
-
-
-    //- if attr.type === "guests"
-    //-     - data = guests
-    //- else if attr.type === "rooms"
-    //-     - data = rooms    
-
-    //- - count = 0
-    //- //- заполнить значение attr.value
-    //- each item in guests
-    //-     - count = count + +item.value
-
-    //- if count
-    //-     - value = count + " гостей" 
-    //- else      
-    //-     - value = "Сколько гостей"

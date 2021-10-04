@@ -1,11 +1,11 @@
 console.log("[run dropdown.js]");
 
-// document.querySelectorAll('.dropdown').forEach(function(item) {
-//     console.log(item)
-// })
+document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+    console.log(dropdown)
 
 
-const dropdown = document.querySelector('.dropdown')
+
+// const dropdown = document.querySelector('.dropdown')
 
 const dropdownInput = dropdown.querySelector('.dropdown__input')
 const dropdownLabel = dropdown.querySelector('.dropdown__label')
@@ -19,13 +19,13 @@ const dropdownButtonApply = dropdown.querySelector('.dropdown__button-apply')
 const dropdownButtonClean = dropdown.querySelector('.dropdown__button-clean')
 
 const type = dropdown.dataset.type
-let data = dropdown.dataset.values
+let data = dropdown.dataset.data
 // console.log(data)
 data = JSON.parse(data)
 // console.log(data)
 
 // заполнить input.value
-function fillDropdownInput() {
+function changeDropdownInputValue() {
     let value =""
     let count = 0
 
@@ -34,71 +34,122 @@ function fillDropdownInput() {
             count = count + +data[key]
         }
 
-        if (count === 0) {
-            value = 'Сколько гостей'
-        }
-        else if (count === 1) {
+        value = 'Сколько гостей'
+
+        if (count === 1) {
             value = count + ' гость'
-        }
-        else if ((count >= 2) && (count <= 4)) {
+        } else if ((count >= 2) && (count <= 4)) {
             value = count + ' гостя'
-        }
-        else {
+        } else if (count > 4) {
             value = count + ' гостей'
         }
-    }
+    } // if (type === "guests")
+
+    if (type === "rooms") {
+        for (let key in data) {
+            count = +data[key]
+
+            let str = ''
+
+            if (key === 'спальни') {
+                if (count === 1) {
+                    str = count + ' спальня'
+                } else if ((count >= 2) && (count <= 4)) {
+                    str = count + ' спальни'
+                } else if (count > 4) {
+                    str = count + ' спален'
+                }
+
+            } else if (key === 'кровати') {
+                if (count === 1) {
+                    str = count + ' кровать'
+                } else if ((count >= 2) && (count <= 4)) {
+                    str = count + ' кровати'
+                } else if (count > 4) {
+                    str = count + ' кроватей'
+                }
+
+            } else if (key === 'ванные комнаты') {
+                if (count === 1) {
+                    str = count + ' ванная комната'
+                } else if ((count >= 2) && (count <= 4)) {
+                    str = count + ' ванные комнаты'
+                } else if (count > 4) {
+                    str = count + ' ванных комнат'
+                }
+            }
+
+            if (str != '') {
+                value = (value === '') ? str : value + ', ' + str
+            }
+
+        } // for (let key in data)
+
+        if (value === '') {
+            value = 'Сколько комнат'
+        }
+
+        // после 2-ой запятой все удалить и поставить ...
+
+    } // if (type === "rooms") 
 
     dropdownInput.innerText = value
 }
 
-fillDropdownInput()
+changeDropdownInputValue()
 
 // --------------------------- КНОПКИ ---------------------------
-// кноки '+' '-'
+// кноки '+' и '-'
 dropdownListItemButtonList.forEach(function(item) {
     item.addEventListener('click', function() {
-        let type = this.innerText
+        let typeBtn = this.innerText
         let key = this.dataset.key
         // console.log(key)
 
         const dropdownListItemValue = this.parentNode.querySelector('.dropdown__list-item-value')
         
-        if (type === '+') {
+        if (typeBtn === '+') {
             dropdownListItemValue.innerText = +dropdownListItemValue.innerText + 1
             if (dropdownListItemValue.innerText === '1') {
                 enableDropdownListItemButton(this.previousElementSibling.previousElementSibling) // кнопку -
             }
-            // для комнат менять input.value
-
         }
         else {
             dropdownListItemValue.innerText = +dropdownListItemValue.innerText - 1
             if (dropdownListItemValue.innerText === '0') {
                 disableDropdownListItemButton(this)
             }
-            // для комнат менять input.value
         }
 
+        if (type === "rooms") {
+            // для комнат менять input.value
+            data[key] = dropdownListItemValue.innerText
+            changeDropdownInputValue()
+        }
     })
 })
 
-// кнопка Очистить
-dropdownButtonClean.addEventListener('click', function() {
-    dropdownListItemValueList.forEach(function(item) {
-        item.innerText = 0
-        disableDropdownListItemButton(item.previousElementSibling)
-        // фокус на Применить
-    })
-})
-
-// кнопка Применить
-dropdownButtonApply.addEventListener('click', function() {
-    dropdownListItemValueList.forEach(function(item) {
-        data[item.dataset.key] = item.innerText
+if (type === "guests") {
+    // кнопка Очистить
+    dropdownButtonClean.addEventListener('click', function() {
+        dropdownListItemValueList.forEach(function(item) {
+            item.innerText = 0
+            disableDropdownListItemButton(item.previousElementSibling)
+            // фокус на Применить
+            // dropdownButtonApply.focus()
+        })
     })
 
-    console.log(data)
-})
+    // кнопка Применить
+    dropdownButtonApply.addEventListener('click', function() {
+        dropdownListItemValueList.forEach(function(item) {
+            data[item.dataset.key] = item.innerText
+        })
+        changeDropdownInputValue()
+
+        console.log(data)
+    })
+}
 
 function disableDropdownListItemButton(button) {
     button.classList.add('dropdown__list-item-button_disabled')
@@ -122,15 +173,17 @@ function enableDropdownListItemButton(button) {
 
 function changeVisibleDropdownButtonClean() {
     let count = 0
-    dropdownListItemValueList.forEach(function(item) {
-        count = count + +item.innerText
-    })
-console.log('count = ' + count)
-    if (count === 0) {
-        dropdownButtonClean.classList.add('none')
-    }
-    else {
-        dropdownButtonClean.classList.remove('none')
+
+    if (type === "guests") {
+        dropdownListItemValueList.forEach(function(item) {
+            count = count + +item.innerText
+        })
+    
+        if (count === 0) {
+            dropdownButtonClean.classList.add('none')
+        } else {
+            dropdownButtonClean.classList.remove('none')
+        }
     }
 }
 
@@ -148,12 +201,12 @@ dropdownInput.addEventListener('click', function() {
             dropdownListItemValue.innerText = data[key]
 
             // восстановить состояние всех кнопок
-            // if (+data[key] > 0) {
-            //     enableDropdownListItemButton(dropdownListItemValue.previousElementSibling)
-            // }
-            // else {
-            //     disableDropdownListItemButton(dropdownListItemValue.previousElementSibling)
-            // }
+            if (+data[key] > 0) {
+                enableDropdownListItemButton(dropdownListItemValue.previousElementSibling)
+            }
+            else {
+                disableDropdownListItemButton(dropdownListItemValue.previousElementSibling)
+            }
         }
     }
 })
@@ -183,7 +236,8 @@ dropdownInput.addEventListener('blur', function(e) {
 // потеря фокуса (dropdown box)
 dropdownBox.addEventListener('focusout', function(e) {
     // console.log(e.relatedTarget)
-    if (e.relatedTarget === null || (!e.relatedTarget.closest('.dropdown__dropdown') && !e.relatedTarget.closest('.dropdown__input'))) {
+    // if (e.relatedTarget === null || (!e.relatedTarget.closest('.dropdown__dropdown') && !e.relatedTarget.closest('.dropdown__input'))) {
+    if (e.relatedTarget === null || (!e.relatedTarget.closest('.dropdown__dropdown') && (e.relatedTarget != dropdownInput))) {
         hidedropdownBox() // скрыть выпад.список
     }
 })
@@ -199,7 +253,8 @@ function hidedropdownBox() {
     if (dropdownInput.classList.contains('dropdown__input_active')) {
         dropdownBox.classList.add('none')
         dropdownInput.classList.remove('dropdown__input_active')
-
-        // для гостей восстановить пред. значения
     }
 }
+
+
+}) // document.querySelectorAll('.dropdown').forEach(function(dropdown)

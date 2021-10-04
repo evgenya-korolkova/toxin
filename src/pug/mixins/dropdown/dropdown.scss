@@ -17,14 +17,16 @@
     border: 1px solid $dark-shade-25;
     border-radius: $input-border-radius;
     background-color: $input-background;
+
     text-align: left;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:hover, &:focus {
         border-color: $dark-shade-50;
     }
-
-    // outline: none;
-    // line-height: $input-height;
 }
 
 .dropdown__input_active {
@@ -35,7 +37,7 @@
 
 .dropdown__input:after {
     position: absolute;
-    display: block;
+    // display: block;
     content: "";
     height: $input-height;
     width: $input-height;
@@ -55,7 +57,9 @@
     position: absolute;
     width: 100%;
     left: 0px;
+    right: 0px;
     top: 100%;
+    // top: $input-height - 1;
     transform: translateY(-1px);    // сместить вверх на 1px
     padding: 6px 6px 6px $input-padding;
 
@@ -64,6 +68,10 @@
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     background-color: $input-background;
+}
+
+.dropdown__dropdown_visible {
+    display: block;
 }
 
 .dropdown__list {
@@ -103,10 +111,7 @@
     font-weight: 400;
     color: $dark-shade-50;
 
-    // text-align: center;
-    // line-height: 28px;
-
-    transition: 0.25s;
+    transition: 0.25s border-color;
 
     &:hover, &:focus {
         border-color: $purple;
@@ -123,7 +128,7 @@
 
 .dropdown__buttons {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     margin-bottom: 7px;
 }
 
@@ -133,4 +138,12 @@
     &:hover, &:focus {
         color: $dark-shade-50;
     }
+}
+
+.dropdown__button-apply {
+    margin-left: auto;
+}
+
+.dropdown__button-clean_hidden {
+    display: none;
 }
