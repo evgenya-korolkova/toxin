@@ -1,5 +1,8 @@
 import './form-elements.scss';
 
-import '@/pug/mixins/dropdown/dropdown.js';
+import {Dropdown} from '@/pug/mixins/dropdown/dropdown.js';
 
-console.log("[run form-elements.bundle.js]");
+document.querySelectorAll('.dropdown').forEach(function(item) {
+    const dropdown = new Dropdown(item)
+    // console.log(dropdown)
+})

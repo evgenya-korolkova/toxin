@@ -1,7 +1,7 @@
 mixin dropdown(label="", attr={}, style={})
 
     - var guests = {'взрослые': '1', 'дети': '0', 'младенцы': '0'}
-    - var rooms = {'спальни': '1', 'кровати': '1', 'ванные комнаты': '1'}
+    - var rooms = {'спальни': '1', 'кровати': '1', 'ванные комнаты': '0'}
     - var data = {}
 
     if attr.type === "guests"
@@ -16,9 +16,8 @@ mixin dropdown(label="", attr={}, style={})
                 br
             button.dropdown__input.body= value
 
-        .dropdown__dropdown.none(tabindex="0")
+        .dropdown__dropdown(tabindex="0")
             .dropdown__list
-                //- each item in data
                 each value, key in data
                     .dropdown__list-item
                         .dropdown__list-item-text.h3= key
