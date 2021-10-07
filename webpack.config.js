@@ -5,11 +5,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isDev = process.env.NODE_ENV === 'development';
 console.log('IS DEV: ', process.env.NODE_ENV);
 
+// const PAGES = path.resolve(__dirname, 'src/pages')
 
 module.exports = {
     entry: {
-        // 'colors-type': './src/pug/pages/ui-kit/colors-type/colors-type.js',
-        'form-elements': './src/pug/pages/ui-kit/form-elements/form-elements.js',
+        // 'colors-type': './src/pages/ui-kit/colors-type/colors-type.js',
+        // 'form-elements': './src/pug/pages/ui-kit/form-elements/form-elements.js',
+        'form-elements': './src/pages/ui-kit/form-elements/form-elements.js',
         // entry: ['@babel/polyfill', './src/index.js'],
     },
 
@@ -29,12 +31,13 @@ module.exports = {
   
     plugins: [
         // new HtmlWebpackPlugin({
-        //     template: './src/pug/pages/ui-kit/colors-type/colors-type.pug',
+        //     template: './src/pages/ui-kit/colors-type/colors-type.pug',
         //     filename: 'colors-type/colors-type.html',
         //     chunks: 'colors-type',
         // }),
         new HtmlWebpackPlugin({
-            template: './src/pug/pages/ui-kit/form-elements/form-elements.pug',
+            // template: './src/pug/pages/ui-kit/form-elements/form-elements.pug',
+            template: './src/pages/ui-kit/form-elements/form-elements.pug',
             filename: 'form-elements/form-elements.html',
             chunks: 'form-elements',
         }),
@@ -81,9 +84,9 @@ module.exports = {
                 // use: ['pug-loader']
                 use: {
                         loader: 'pug-loader',
-                        options: {
-                            basedir: path.resolve(__dirname, 'src/pug'),
-                        }
+                        // options: {
+                        //     basedir: path.resolve(__dirname, 'src/pug'),
+                        // }
                     }
             },
             // babel
@@ -103,6 +106,7 @@ module.exports = {
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src'),
+            '@blocks': path.resolve(__dirname, 'src/blocks'),
         }
     }
 };

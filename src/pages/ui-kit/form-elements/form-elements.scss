@@ -1,11 +1,16 @@
 @import '@/fonts/montserrat';
-@import '@/scss/colors';
-@import '@/scss/type';
-@import '@/scss/base';
 
-@import '@/pug/mixins/text-field/text-field';
-@import '@/pug/mixins/subscr-text-field/subscr-text-field';
-@import '@/pug/mixins/dropdown/dropdown';
+// @import '@/scss/colors';
+// @import '@/scss/type';
+// @import '@/scss/base';
+
+@import '@/scss/main';
+
+// @import '@blocks/text-field/text-field';
+// @import '@blocks/subscr-text-field/subscr-text-field';
+// @import '@blocks/dropdown/dropdown';
+
+@import '@blocks/blocks'; // стили всех блоков
 
 .row {
     display: flex;
