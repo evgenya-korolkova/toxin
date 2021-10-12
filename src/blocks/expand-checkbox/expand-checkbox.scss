@@ -1,0 +1,41 @@
+.expand-checkbox__title {
+    position: relative;
+    width: 100%;
+
+    padding-right: $input-height;
+    padding-top: 15px;
+    padding-bottom: 12px;
+    text-align: left;
+
+    &:focus {
+        color: $purple;
+    }
+}
+
+.expand-checkbox__title:before {
+    position: absolute;
+    content: '';
+
+    height: $input-height;
+    width: $input-height;
+    right: 0px;
+    top: 0px;
+
+    background-image: url('@blocks/expand-checkbox/expand.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: transform 0.4s;
+}
+
+.expand-checkbox__title_rotated:before {
+    transform: rotate(180deg);
+}
+
+.expand-checkbox__checkbox {
+    padding-top: 6px;
+}
+
+.expand-checkbox__checkbox_hidden {
+    display: none;
+}

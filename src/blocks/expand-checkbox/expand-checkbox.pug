@@ -1,0 +1,7 @@
+mixin expand-checkbox(title="", name="", data=[])
+    
+    .expand-checkbox
+        button.expand-checkbox__title.h3= title
+
+        .expand-checkbox__checkbox.expand-checkbox__checkbox_hidden
+            +checkbox("", name, data)

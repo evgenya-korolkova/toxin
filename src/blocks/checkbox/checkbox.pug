@@ -1,17 +1,17 @@
-mixin checkbox(title="", attr={})
+mixin checkbox(title="", name="", data=[], type="")
+    //- type = "" или "rich"
 
-    //- - var data = ['Можно курить', 'Можно с питомцами', 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)']
-    - var data = [{text: 'Можно курить', checked: false}, 
-    -             {text: 'Можно с питомцами', checked: true}, 
-    -             {text: 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)', checked: true}]
-
-    .checkbox 
+    .checkbox
         if title
             .checkbox__title.h3= title
 
         each item, index in data
             label.checkbox__label
-                input.checkbox__real(type="checkbox" name=attr.name value=index checked=item.checked)
+                input.checkbox__real(type="checkbox" name=name value=index checked=item.checked)
                 span.checkbox__custom 
-                .checkbox__text.body !{item.text}
+                if type !== 'rich'
+                    .checkbox__text.body !{item.text}
+                else 
+                    .checkbox__rich-text.body !{item.text}
+                    .checkbox__rich-descr !{item.descr}
         
