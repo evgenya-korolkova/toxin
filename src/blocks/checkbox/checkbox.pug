@@ -1,0 +1,17 @@
+mixin checkbox(title="", attr={})
+
+    //- - var data = ['Можно курить', 'Можно с питомцами', 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)']
+    - var data = [{text: 'Можно курить', checked: false}, 
+    -             {text: 'Можно с питомцами', checked: true}, 
+    -             {text: 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)', checked: true}]
+
+    .checkbox 
+        if title
+            .checkbox__title.h3= title
+
+        each item, index in data
+            label.checkbox__label
+                input.checkbox__real(type="checkbox" name=attr.name value=index checked=item.checked)
+                span.checkbox__custom 
+                .checkbox__text.body !{item.text}
+        

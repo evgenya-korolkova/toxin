@@ -46,19 +46,15 @@
     background-image: url('@blocks/dropdown/expand.svg');
     background-repeat: no-repeat;
     background-position: center;
-
-    &:focus {
-        border: 1px solid $purple;
-        border-radius: $input-border-radius;
-    }
 }
 
 .dropdown__dropdown {
     position: absolute;
     display: none;
+    z-index: 10;
+
     width: 100%;
     left: 0px;
-    right: 0px;
     top: 100%;
     transform: translateY(-1px);    // сместить вверх на 1px
     padding: 6px 6px 6px $input-padding;
@@ -126,7 +122,7 @@
     transition: 0.25s border-color;
 
     &:hover, &:focus {
-        border-color: $purple;
+        box-shadow: 0 0 0 1px $purple;
     }
 }
 
