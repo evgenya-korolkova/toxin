@@ -85,10 +85,19 @@ button {
     overflow: hidden;
 }
 
+.hidden {
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    appearance: none;
+}
+
 
 // ------------------- input margin-bottom -------------------
-.input_mb_5 {
-    margin-bottom: 20px;
+.input_mb_10 {
+    margin-bottom: 10px;
 }
 
 .input_mb_20 {

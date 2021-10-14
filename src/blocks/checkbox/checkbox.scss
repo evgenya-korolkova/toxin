@@ -1,5 +1,4 @@
 .checkbox__title {
-    position: relative;
     margin-bottom: 17px;
 }
 
@@ -12,15 +11,7 @@
     &:last-child {
         margin-bottom: 0;
     }
-}
-
-.checkbox__real {
-    position: absolute;
-    z-index: -1;
-    width: 0;
-    height: 0;
-    opacity: 0;
-    appearance: none;
+    cursor: pointer;
 }
 
 .checkbox__custom {

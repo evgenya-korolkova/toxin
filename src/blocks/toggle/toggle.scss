@@ -1,0 +1,44 @@
+.toggle__title {
+    margin-bottom: 16px;
+}
+
+.toggle__label {
+    cursor: pointer;
+}
+
+.toggle__custom {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-right: 10px;
+
+    border: 1px solid $dark-shade-25;
+    border-radius: 10px;
+    background: $input-background;
+
+    vertical-align: text-bottom;
+}
+
+.toggle__custom:before {
+    position: absolute;
+    content: '';
+
+    width: 12px;
+    height: 12px;
+    left: 3px;
+    top: 3px;
+
+    border-radius: 10px;
+    background: $dark-shade-25;
+    transition: left 0.4s;
+}
+
+.toggle__real:checked + .toggle__custom {
+    border-color: $purple;
+}
+
+.toggle__real:checked + .toggle__custom:before {
+    background: linear-gradient(180deg, $purple 0%, #8BA4F9 100%);
+    left: 23px;
+}

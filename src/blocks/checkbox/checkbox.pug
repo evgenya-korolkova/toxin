@@ -7,7 +7,7 @@ mixin checkbox(title="", name="", data=[], type="")
 
         each item, index in data
             label.checkbox__label
-                input.checkbox__real(type="checkbox" name=name value=index checked=item.checked)
+                input.checkbox__real.hidden(type="checkbox" name=name value=index checked=item.checked)
                 span.checkbox__custom 
                 if type !== 'rich'
                     .checkbox__text.body !{item.text}

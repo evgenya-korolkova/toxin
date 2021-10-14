@@ -1,0 +1,10 @@
+mixin toggle(title="", name="", label="", checked=false)
+
+    .toggle 
+        if title
+            .toggle__title.h3= title
+
+        label.toggle__label
+            input.toggle__real.hidden(type="checkbox" name=name checked=checked)
+            span.toggle__custom 
+            span.toggle__text.body= label
