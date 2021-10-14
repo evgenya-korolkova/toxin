@@ -1,4 +1,4 @@
-export class Checkbox {
+export class ExpandCheckbox {
     constructor(block) {
         this.block = block
 

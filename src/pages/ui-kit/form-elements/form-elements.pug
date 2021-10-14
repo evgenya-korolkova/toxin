@@ -29,6 +29,7 @@ block content
                 +dropdown("гости", {type: "guests"})    
 
         .col
+
             .input_mb_20
                 label.h3 Select<br>
                     select
@@ -49,28 +50,28 @@ block content
                     {text: 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)', checked: true}]
                     )   
 
-            .input_mb_40
-                +checkbox(
-                    "rich checkbox buttons", 
-                    "access",
-                    [{text: 'Широкий коридор', descr: 'Ширина коридоров в номере не&nbsp;менее&nbsp;91&nbsp;см.', checked: true}, 
-                    {text: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false}], 
-                    "rich"
-                    )                          
+            //- .input_mb_40
+            //-     +checkbox(
+            //-         "rich checkbox buttons", 
+            //-         "access",
+            //-         [{text: 'Широкий коридор', descr: 'Ширина коридоров в номере не&nbsp;менее&nbsp;91&nbsp;см.', checked: true}, 
+            //-         {text: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false}], 
+            //-         "rich"
+            //-         )                          
 
-            .input_mb_20
-                +expand-checkbox(
-                    "expandable checkbox list", 
-                    "comfort",
-                    [{text: 'Завтрак', checked: false}, 
-                    {text: 'Письменный стол', checked: true}, 
-                    {text: 'Стул для кормления', checked: true}, 
-                    {text: 'Кроватка', checked: true}, 
-                    {text: 'Телевизор', checked: false}, 
-                    {text: 'Шампунь', checked: false}]
-                    )  
+            //- .input_mb_20
+            //-     +expand-checkbox(
+            //-         "expandable checkbox list", 
+            //-         "comfort",
+            //-         [{text: 'Завтрак', checked: false}, 
+            //-         {text: 'Письменный стол', checked: true}, 
+            //-         {text: 'Стул для кормления', checked: true}, 
+            //-         {text: 'Кроватка', checked: true}, 
+            //-         {text: 'Телевизор', checked: false}, 
+            //-         {text: 'Шампунь', checked: false}]
+            //-         )  
 
-            .input_mb_40
+            //- .input_mb_40
                 +expand-checkbox(
                     "expandable checkbox list", 
                     "comfort",
@@ -85,8 +86,31 @@ block content
             .input_mb_10
                 +toggle("toggle", "special", "Получать спецпредложения") 
 
-            .input_mb_20
+            .input_mb_40
                 +toggle("", "offers", "Получать спецпредложения", true)
+
+
+            .input_mb_10
+                +like('like button', 2)
+
+            .input_mb_40
+                +like('', 12, true)
+
+
+            .input_mb_40
+                +expand-checkbox(
+                    'expandable checkbox list', 
+                    'comfort',
+                    [{text: 'Завтрак', checked: false}, 
+                    {text: 'Письменный стол', checked: true}, 
+                    {text: 'Стул для кормления', checked: true}, 
+                    {text: 'Кроватка', checked: true}, 
+                    {text: 'Телевизор', checked: false}, 
+                    {text: 'Шампунь', checked: false}]
+                    ) 
+            
+
+            
 
         .col
 
