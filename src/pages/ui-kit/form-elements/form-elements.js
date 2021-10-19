@@ -22,6 +22,6 @@ document.querySelectorAll('.like').forEach(function(item) {
 
 document.querySelectorAll('.rate').forEach(function(item) {
     const rate = new Rate(item)
-    console.log(rate)
+    // console.log(rate)
 })
 

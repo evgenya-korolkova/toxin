@@ -1,0 +1,12 @@
+mixin radio(title = '', name = '', data=[{text: 'Мужчина', checked: true}, {text: 'Женщина', checked: false}])
+
+    .radio
+        if title
+            .radio__title.h3= title
+
+        each item, index in data
+            label.radio__label
+                input.radio__real.hidden(type="radio" name=name value=index checked=item.checked)
+                span.radio__custom 
+                span.radio__text.body !{item.text}
+        

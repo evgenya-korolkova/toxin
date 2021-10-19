@@ -50,15 +50,18 @@ block content
                     {text: 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)', checked: true}]
                     )   
 
-            //- .input_mb_40
-            //-     +checkbox(
-            //-         "rich checkbox buttons", 
-            //-         "access",
-            //-         [{text: 'Широкий коридор', descr: 'Ширина коридоров в номере не&nbsp;менее&nbsp;91&nbsp;см.', checked: true}, 
-            //-         {text: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false}], 
-            //-         "rich"
-            //-         )                          
+            .input_mb_40
+                +checkbox(
+                    "rich checkbox buttons", 
+                    "access",
+                    [{text: 'Широкий коридор', descr: 'Ширина коридоров в номере не&nbsp;менее&nbsp;91&nbsp;см.', checked: true}, 
+                    {text: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false}], 
+                    "rich"
+                    )                          
 
+
+            .input_mb_40
+                +radio('radio buttons', 'gender')
 
             .input_mb_10
                 +toggle('toggle', 'special', 'Получать спецпредложения') 
