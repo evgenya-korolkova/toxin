@@ -1,0 +1,23 @@
+.rate-enabled {
+    cursor: pointer;
+}
+
+.rate__title {
+    margin-bottom: 16px;
+}
+
+.rate__stars {
+    display: flex;
+}
+
+.rate__star {
+    width: 24px;
+    height: 24px;
+    background-image: url('@blocks/rate/star_border.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.rate__star-active {
+    background-image: url('@blocks/rate/star.svg');
+}

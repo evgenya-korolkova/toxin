@@ -20,6 +20,10 @@
     vertical-align: text-bottom;
 }
 
+.toggle__real:focus-visible + .toggle__custom {
+    box-shadow: 0 0 0 1px $purple;
+}
+
 .toggle__custom:before {
     position: absolute;
     content: '';

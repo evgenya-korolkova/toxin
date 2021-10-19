@@ -1,0 +1,16 @@
+mixin rate(title = '', rate = 5, enabled = true)
+
+    - var classes = {}
+    - classes['rate-enabled'] = enabled
+
+    .rate(class=classes data-rate=rate) 
+        if title
+            .rate__title.h3= title
+
+        .rate__stars
+            - for (var i = 1; i <= 5; i++)
+                if (i <= rate)
+                    .rate__star.rate__star-active(data-rate=i)
+                else
+                    .rate__star(data-rate=i)
+

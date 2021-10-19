@@ -1,8 +1,7 @@
 mixin like(title = '', count = 0, liked = false)
 
-    - var classes = ''
-    if liked
-        - classes = 'like__button-liked'
+    - var classes = {}
+    - classes['like__button-liked'] = liked
 
     .like 
         if title

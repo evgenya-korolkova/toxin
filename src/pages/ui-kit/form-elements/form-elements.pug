@@ -59,35 +59,12 @@ block content
             //-         "rich"
             //-         )                          
 
-            //- .input_mb_20
-            //-     +expand-checkbox(
-            //-         "expandable checkbox list", 
-            //-         "comfort",
-            //-         [{text: 'Завтрак', checked: false}, 
-            //-         {text: 'Письменный стол', checked: true}, 
-            //-         {text: 'Стул для кормления', checked: true}, 
-            //-         {text: 'Кроватка', checked: true}, 
-            //-         {text: 'Телевизор', checked: false}, 
-            //-         {text: 'Шампунь', checked: false}]
-            //-         )  
-
-            //- .input_mb_40
-                +expand-checkbox(
-                    "expandable checkbox list", 
-                    "comfort",
-                    [{text: 'Завтрак', checked: false}, 
-                    {text: 'Письменный стол', checked: true}, 
-                    {text: 'Стул для кормления', checked: true}, 
-                    {text: 'Кроватка', checked: true}, 
-                    {text: 'Телевизор', checked: false}, 
-                    {text: 'Шампунь', checked: false}]
-                    ) 
 
             .input_mb_10
-                +toggle("toggle", "special", "Получать спецпредложения") 
+                +toggle('toggle', 'special', 'Получать спецпредложения') 
 
             .input_mb_40
-                +toggle("", "offers", "Получать спецпредложения", true)
+                +toggle('', 'offers', 'Получать спецпредложения', true)
 
 
             .input_mb_10
@@ -95,6 +72,12 @@ block content
 
             .input_mb_40
                 +like('', 12, true)
+
+            .input_mb_10
+                +rate('rate button')
+
+            .input_mb_40
+                +rate('', 4, false)
 
 
             .input_mb_40
