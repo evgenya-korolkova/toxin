@@ -1,0 +1,58 @@
+@import 'nouislider/dist/nouislider.css';
+
+.slider {
+    position: relative;
+}
+
+.slider__title {
+    margin-bottom: 23px;
+}
+
+.slider__tooltip {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    font-weight: 400;
+    color: $dark-shade-50;
+}
+
+// ------------------ noUiSlider ------------------
+
+.noUi-horizontal {
+    height: 6px;
+}
+
+.noUi-target {
+    border: 1px solid $dark-shade-25;
+    border-radius: 3px;
+    background: $input-background;
+    box-shadow: none;
+}
+
+.noUi-base {
+    position: absolute;
+    height: 6px;
+    top: -1px;
+}
+
+.noUi-connect {
+    border-radius: 3px;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 16px;
+    height: 16px;
+    right: -8px;
+    top: -5px;
+
+    border: 2px solid $input-background;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    box-shadow: none;
+}
+
+.noUi-handle:before, .noUi-handle:after {
+    display: none;
+}

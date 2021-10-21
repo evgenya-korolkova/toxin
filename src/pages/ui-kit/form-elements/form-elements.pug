@@ -9,7 +9,7 @@ block variables
 block content
 
     .row
-        .col
+        .col.none
             .input_mb_20
                 +text-field("text field", {placeholder: "Email"}, {color: "red"})
 
@@ -28,7 +28,7 @@ block content
             .input_mb_130
                 +dropdown("гости", {type: "guests"})    
 
-        .col
+        .col.none
 
             .input_mb_20
                 label.h3 Select<br>
@@ -45,19 +45,21 @@ block content
                 +checkbox(
                     "checkbox buttons", 
                     "rules",
-                    [{text: 'Можно курить', checked: false}, 
-                    {text: 'Можно с питомцами', checked: true}, 
-                    {text: 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)', checked: true}]
-                    )   
+                    [
+                        {text: 'Можно курить', checked: false}, 
+                        {text: 'Можно с питомцами', checked: true}, 
+                        {text: 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)', checked: true}
+                    ])   
 
             .input_mb_40
                 +checkbox(
                     "rich checkbox buttons", 
                     "access",
-                    [{text: 'Широкий коридор', descr: 'Ширина коридоров в номере не&nbsp;менее&nbsp;91&nbsp;см.', checked: true}, 
-                    {text: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false}], 
-                    "rich"
-                    )                          
+                    [
+                        {text: 'Широкий коридор', descr: 'Ширина коридоров в номере не&nbsp;менее&nbsp;91&nbsp;см.', checked: true}, 
+                        {text: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false}
+                    ], 
+                    "rich")                          
 
 
             .input_mb_40
@@ -87,18 +89,41 @@ block content
                 +expand-checkbox(
                     'expandable checkbox list', 
                     'comfort',
-                    [{text: 'Завтрак', checked: false}, 
-                    {text: 'Письменный стол', checked: true}, 
-                    {text: 'Стул для кормления', checked: true}, 
-                    {text: 'Кроватка', checked: true}, 
-                    {text: 'Телевизор', checked: false}, 
-                    {text: 'Шампунь', checked: false}]
-                    ) 
-            
-
-            
+                    [
+                        {text: 'Завтрак', checked: false}, 
+                        {text: 'Письменный стол', checked: true}, 
+                        {text: 'Стул для кормления', checked: true}, 
+                        {text: 'Кроватка', checked: true}, 
+                        {text: 'Телевизор', checked: false}, 
+                        {text: 'Шампунь', checked: false}
+                    ]) 
 
         .col
+            .input_mb_40
+                +slider(
+                    'range slider', 
+                    'price',
+                    {
+                        start: [5000, 10000],
+                        step: 500,
+                        range: {
+                            'min': 0,
+                            'max': 16000 
+                        }
+                    })
+
+            .input_mb_40    
+                +slider(
+                    'range slider',
+                    '',
+                    {
+                        start: [3000, 10000],
+                        step: 1000,
+                        range: {
+                            'min': 0,
+                            'max': 25000
+                        }
+                    })
 
 
     .row
