@@ -26,8 +26,8 @@ document.querySelectorAll('.rate').forEach(function(item) {
     // console.log(rate)
 })
 
-
 document.querySelectorAll('.slider').forEach(function(item) {
     const slider = new Slider(item)
     // console.log(slider)
 })
+

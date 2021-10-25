@@ -9,7 +9,7 @@ block variables
 block content
 
     .row
-        .col.none
+        .col
             .input_mb_20
                 +text-field("text field", {placeholder: "Email"}, {color: "red"})
 
@@ -28,7 +28,7 @@ block content
             .input_mb_130
                 +dropdown("гости", {type: "guests"})    
 
-        .col.none
+        .col
 
             .input_mb_20
                 label.h3 Select<br>
@@ -124,6 +124,21 @@ block content
                             'max': 25000
                         }
                     })
+
+            .input_mb_16    
+                .h3= 'buttons'
+
+            .input_mb_30    
+                +btn('Click me')
+
+            .input_mb_30    
+                +btn('Click me', 'border')
+
+            .input_mb_30    
+                +btn-text('Click me')
+
+            .input_mb_40    
+                +btn('Перейти к оплате', 'submit')
 
 
     .row

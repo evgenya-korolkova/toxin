@@ -50,7 +50,14 @@
     border: 2px solid $input-background;
     border-radius: 10px;
     background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+
     box-shadow: none;
+    outline: none;
+    cursor: pointer;
+
+    &:focus-visible {
+        border-color: #6FCF97;
+    }
 }
 
 .noUi-handle:before, .noUi-handle:after {

@@ -33,13 +33,13 @@ module.exports = {
         // new HtmlWebpackPlugin({
         //     template: './src/pages/ui-kit/colors-type/colors-type.pug',
         //     filename: 'colors-type/colors-type.html',
-        //     chunks: 'colors-type',
+        //     chunks: ['colors-type'],
         // }),
         new HtmlWebpackPlugin({
             // template: './src/pug/pages/ui-kit/form-elements/form-elements.pug',
             template: './src/pages/ui-kit/form-elements/form-elements.pug',
             filename: 'form-elements/form-elements.html',
-            chunks: 'form-elements',
+            chunks: ['form-elements'],
         }),
         new MiniCssExtractPlugin({
             filename: '[name]/[name].css',

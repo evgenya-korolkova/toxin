@@ -1,0 +1,14 @@
+mixin btn(text = '', btnType = 'simple')
+    //- btnType = 'simple', 'border', 'submit'
+
+    - var classes = 'btn__button_type_' + btnType
+
+    if btnType !== "submit"
+        - btnType = 'button'
+
+    //- if width > 0
+    //-     - classes = classes + ' btn__button_width_' + width     
+
+    .btn
+        button.btn__button.h3(type=btnType class=classes)= text
+        

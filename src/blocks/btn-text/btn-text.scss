@@ -1,0 +1,8 @@
+.btn-text__button {
+    color: $purple;
+    transition: color 0.4s;
+
+    &:hover, &:focus {
+        color: $dark-shade-50;
+    }
+}
