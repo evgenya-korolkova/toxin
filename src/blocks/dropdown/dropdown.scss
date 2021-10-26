@@ -37,12 +37,12 @@
 
 .dropdown__input:after {
     position: absolute;
-    // display: block;
-    content: "";
+    content: '';
     height: $input-height;
     width: $input-height;
     right: 0px;
-    bottom: -1px;
+    top: -1px;
+
     background-image: url('@blocks/dropdown/expand.svg');
     background-repeat: no-repeat;
     background-position: center;

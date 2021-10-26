@@ -45,11 +45,11 @@
 
 .btn__button_type_submit:after {
     position: absolute;
-    content: "";
+    content: '';
     height: $input-height;
     width: $input-height;
     right: 0px;
-    bottom: -1px;
+    top: 0px;
 
     background-image: url('@blocks/btn/arrow_forward.svg');
     background-repeat: no-repeat;

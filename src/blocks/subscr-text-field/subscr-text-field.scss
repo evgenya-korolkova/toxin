@@ -28,11 +28,11 @@
 
 .subscr-text-field__button {
     position: absolute;
-    display: block;
     height: $input-height;
     width: $input-height;
     right: 0px;
     bottom: 0px;
+
     background-image: url('@blocks/subscr-text-field/arrow.svg');
     background-repeat: no-repeat;
     background-position: center;
