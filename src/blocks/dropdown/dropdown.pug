@@ -12,9 +12,7 @@ mixin dropdown(label="", attr={})
 
     .dropdown(data-type=attr.type data-data=data)
         label.dropdown__label
-            if label
-                span.h3= label 
-                br
+            +label(label)
             button.dropdown__input.body= value
 
         .dropdown__dropdown(tabindex="0")

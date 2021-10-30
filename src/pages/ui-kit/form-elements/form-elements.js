@@ -5,6 +5,8 @@ import {ExpandCheckbox} from '@blocks/expand-checkbox/expand-checkbox.js';
 import {Like} from '@blocks/like/like.js';
 import {Rate} from '@blocks/rate/rate.js';
 import {Slider} from '@blocks/slider/slider.js';
+import {Datepicker} from '@blocks/datepicker/datepicker';
+
 
 document.querySelectorAll('.dropdown').forEach(function(item) {
     const dropdown = new Dropdown(item)
@@ -31,3 +33,7 @@ document.querySelectorAll('.slider').forEach(function(item) {
     // console.log(slider)
 })
 
+document.querySelectorAll('.datepicker').forEach(function(item) {
+    const datepicker = new Datepicker(item)
+    console.log(datepicker)
+})

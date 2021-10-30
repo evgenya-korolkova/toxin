@@ -17,16 +17,21 @@ block content
                 +text-field("text field", {placeholder: "password", value: "This is pretty awesome", autofocus: true})
 
             //- .input_mb_20
-            //-     +text-field("dropdown", {placeholder: "disabled: true", value: "disabled: true", disabled: true})
-
-            .input_mb_20
-                +text-field("text field", {value: "Константин Кончтантиновичч Константинопольский"})
+            //-     +text-field("text field", {value: "Константин Кончтантиновичч Константинопольский"})
             
-            .input_mb_20
-                +subscr-text-field("subscription text field", {value: "Константин Кончтантиновичч Константинопольский"})    
+            //- .input_mb_20
+            //-     +subscr-text-field("subscription text field", {value: "Константин Кончтантиновичч Константинопольский"})    
 
-            .input_mb_130
-                +dropdown("гости", {type: "guests"})    
+            //- .input_mb_30
+            //-     +dropdown("гости", {type: "guests"})    
+
+            .input_mb_20
+                +datepicker('date dropdown', '')  
+
+              
+
+            .input_mb_20
+                +text-field("text field", {placeholder: "Email"}, {color: "red"})       
 
         .col
 
@@ -37,6 +42,9 @@ block content
                         option(value="2" )= "CSS"     
                         option(value="3")= "JS"     
                         option(value="4")= "PHP"  
+
+            .input_mb_20
+                +datepicker('filter date dropdown', '', 'filter')
 
             .input_mb_40
                 +dropdown("удобства номера", {type: "rooms"})       
