@@ -11,7 +11,7 @@ block content
     .row
         .col
             .input_mb_20
-                +text-field("text field", {placeholder: "Email"}, {color: "red"})
+                +text-field("text field", {placeholder: "ДД.ММ.ГГГГ", type: 'date'}, {color: "red"})
 
             .input_mb_20
                 +text-field("text field", {placeholder: "password", value: "This is pretty awesome", autofocus: true})
@@ -26,7 +26,11 @@ block content
             //-     +dropdown("гости", {type: "guests"})    
 
             .input_mb_20
-                +datepicker('date dropdown', '')  
+                +datepicker('date dropdown', '') 
+
+            form(action="") 
+                +datepicker('date dropdown', '') 
+                button(type="submit") Кнопка
 
               
 

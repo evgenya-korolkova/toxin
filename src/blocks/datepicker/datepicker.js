@@ -56,16 +56,26 @@ export class Datepicker {
             showEvent: '',
             offset: 5,
             buttons: [btnClear, btnApply],
-            defaultValue: 'ДД.ММ.ГГГГ',
+            defaultValue: 'ДД.ММ.ГГГГ', // значение по умолчанию (новое свойство)
             navTitles: {
                 days: 'MMMM yyyy'
             },
+
+            // selectedDates: ['11.01.2021', '11.10.2021'], // мм.дд.гггг
 
             onSelect({date, formattedDate, datepicker}) {
                 if (datepicker.selectedDates.length > 0) {
                     datepicker.btnClear.classList.remove('datepicker__btn-clear_hidden')
                 } else {
                     datepicker.btnClear.classList.add('datepicker__btn-clear_hidden')
+                }
+            },
+
+            onChangeView(view) {
+                if (view === 'days') {
+                    this.dp.$buttons.classList.remove('air-datepicker--buttons_hidden')
+                } else {
+                    this.dp.$buttons.classList.add('air-datepicker--buttons_hidden')
                 }
             },
         }
@@ -76,11 +86,15 @@ export class Datepicker {
         }
         
         this.adp = new AirDatepicker(this.inputReal, opts)
-        this.adp.btnClear =  this.adp.$datepicker.querySelector('.datepicker__btn-clear')
+        this.adp.btnClear =  this.adp.$datepicker.querySelector('.datepicker__btn-clear') // для onSelect -> скрывать/показывать Очистить
+        this.adp.dp = this          // adp.dp - ссылка на родителя (для кнопки Применить -> записать даты в соотв. поля)
+        this.adp.opts.dp = this.adp // opts.dp - ссылка на родителя (для onChangeView -> убрать кнопки Очистить и Применить)
         this.adp.locale.monthsShort = this.adp.locale.monthsShort.map((item) => item.toLowerCase()) // название месяца строчными буквами
-        this.adp.dp = this
 
-        console.log(this.adp)
+        // показать Очистить, если выбраны даты
+        if (this.adp.selectedDates.length > 0) {
+            this.adp.btnClear.classList.remove('datepicker__btn-clear_hidden')
+        }
     }
 
     getDOM() {
@@ -106,6 +120,6 @@ export class Datepicker {
 
     handleInputClick() {
         this.adp.show()
-        // this.inputReal.focus()
+        this.inputReal.focus()
     }
 }

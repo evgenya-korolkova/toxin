@@ -39,4 +39,8 @@
     &:hover, &:focus {
         border-color: $dark-shade-50;
     }
+
+    &::placeholder {
+        color: $dark-shade-25;
+    }
 }

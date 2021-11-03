@@ -7,16 +7,16 @@ mixin datepicker(label1 = '', label2 = '', type = '')
         if (type === 'filter')
             label.datepicker__label
                 +label(label1)
-                button.datepicker__input-custom.input.body(data-input='filter') 
+                button(type="button").datepicker__input-custom.input.body(data-input='filter') 
 
         else
             .datepicker__wrapper
                 label.datepicker__label.datepicker__label_width_150
                     +label(label1)
-                    button.datepicker__input-custom.input.body(data-input='from') ДД.ММ.ГГГГ
+                    button(type="button").datepicker__input-custom.input.body(data-input='from') ДД.ММ.ГГГГ
 
                 label.datepicker__label.datepicker__label_width_150
                     +label(label2)
-                    button.datepicker__input-custom.input.body(data-input='to') ДД.ММ.ГГГГ
+                    button(type="button").datepicker__input-custom.input.body(data-input='to') ДД.ММ.ГГГГ
 
         input.datepicker__input-real.input.body(readonly tabindex=-1)

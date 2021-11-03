@@ -35,5 +35,5 @@ document.querySelectorAll('.slider').forEach(function(item) {
 
 document.querySelectorAll('.datepicker').forEach(function(item) {
     const datepicker = new Datepicker(item)
-    console.log(datepicker)
+    // console.log(datepicker)
 })
