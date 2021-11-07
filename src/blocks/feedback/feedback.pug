@@ -3,7 +3,7 @@ mixin feedback(data = {})
     .feedback 
         .feedback__person 
             .feedback__person-photo
-                img(src=require('@/img/visitors/' + data.photo) alt='фото')
+                img(src=require('@/img/visitor/' + data.photo) alt='фото')
             .feedback__person-info
                 .feedback__person-name.body= data.name
                 .feedback__person-date.body= data.date 

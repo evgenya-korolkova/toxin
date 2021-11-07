@@ -8,7 +8,7 @@ block variables
 
 block content
 
-    .row
+    .row.row_hidden
         .col
             .input_mb_20
                 +text-field("text field", {placeholder: "ДД.ММ.ГГГГ", type: 'date'}, {color: "red"})
@@ -162,8 +162,11 @@ block content
 
     .row
         .col-1
-
-
+            +inform([
+                {img: 'smile.svg', text: 'Комфорт', descr: 'Шумопоглощающие стены'},
+                {img: 'house.svg', text: 'Удобство', descr: 'Окно в каждой из спален'},
+                {img: 'fire.svg', text: 'Уют', descr: 'Номер оснащён камином'}
+            ])
 
         .col-2
             +feedback({
@@ -174,8 +177,5 @@ block content
                 count: 12,
                 liked: true
             })
-
-    
-    //- photo: require('@/img/visitors/photo-1.jpg'),
 
     

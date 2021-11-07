@@ -1,0 +1,10 @@
+mixin inform(data = [])
+
+    .inform 
+        each item in data
+            .inform__item 
+                .inform__item-img 
+                    img(src=require('@/img/inform/' + item.img) alt='фото')
+                .inform__item-content
+                    .inform__item-text.body= item.text
+                    .inform__item-descr.body= item.descr
