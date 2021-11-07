@@ -1,11 +1,11 @@
-mixin like(title = '', count = 0, liked = false)
+mixin like(count = 0, liked = false)
 
     - var classes = {}
     - classes['like__button-liked'] = liked
 
     .like 
-        if title
-            .like__title.h3= title
+        //- if title
+        //-     .like__title.h3= title
 
         .like__button(class=classes)
             .like__img

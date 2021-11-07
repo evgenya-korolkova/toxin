@@ -85,10 +85,10 @@ block content
 
 
             .input_mb_10
-                +like('like button', 2)
+                +like(2)
 
             .input_mb_40
-                +like('', 12, true)
+                +like(12, true)
 
             .input_mb_10
                 +rate('rate button')
@@ -162,15 +162,20 @@ block content
 
     .row
         .col-1
+
+
+
         .col-2
+            +feedback({
+                photo: 'photo-1.jpg',
+                name: 'Мурад Сарафанов',
+                date: '5 дней назад',
+                text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+                count: 12,
+                liked: true
+            })
 
     
-    //-     +text-field("masked text field", {type: "text", pattern: "", placeholder: "ДД.ММ.ГГГГ"})
-
-        
-
-
-
-    
+    //- photo: require('@/img/visitors/photo-1.jpg'),
 
     

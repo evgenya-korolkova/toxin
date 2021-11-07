@@ -11,6 +11,10 @@
     }
 }
 
+.row_hidden {
+    display: none;
+}
+
 .col {
     width: 320px;
     // width: 266px;
@@ -26,9 +30,6 @@
 
 .col-2 {
     width: 710px;
-
-    height: 500px;
-    background-color: lightcoral;
 }
 
 form {
