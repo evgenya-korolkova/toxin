@@ -1,9 +1,5 @@
-.rate-enabled {
+.rate_enabled {
     cursor: pointer;
-}
-
-.rate__title {
-    margin-bottom: 16px;
 }
 
 .rate__stars {
@@ -18,6 +14,6 @@
     background-position: center;
 }
 
-.rate__star-active {
+.rate__star_active {
     background-image: url('@blocks/rate/star.svg');
 }

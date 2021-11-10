@@ -4,13 +4,9 @@
     position: relative;
 }
 
-.slider__title {
-    margin-bottom: 23px;
-}
-
 .slider__tooltip {
     position: absolute;
-    top: 0;
+    bottom: calc(100% + 23px);
     right: 0;
 
     font-weight: 400;

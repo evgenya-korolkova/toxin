@@ -1,9 +1,5 @@
-mixin bullet-list(title = '', data = [])
+mixin bullet-list(data = [])
 
     .bullet-list 
-        if title
-            .bullet-list__title.h3= title
-
-        ul.bullet-list__list 
-            each item in data
-                li.bullet-list__list-item.body !{item}
+        each item in data
+            .bullet-list__item.body !{item}

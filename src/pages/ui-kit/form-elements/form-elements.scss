@@ -5,33 +5,50 @@
 .row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 100px;
-    &:last-child {
-        margin-bottom: 0;
-    }
 }
 
 .row_hidden {
     display: none;
 }
 
-.col {
-    width: 320px;
-    // width: 266px;
-    // background-color: lightyellow;
+// -------------------- col_width --------------------
+.col_width_266 {
+    width: 266px;
 }
 
-.col-1 {
+.col_width_280 {
     width: 280px;
 }
 
-.col-2 {
+.col_width_320 {
+    width: 320px;
+}
+
+.col_width_710 {
     width: 710px;
 }
 
-form {
-    height: 500px;
+.col_width_50 {
+    width: 50%;
 }
 
+// ------------------- margin-bottom -------------------
+.mb_10 {
+    margin-bottom: 10px;
+}
 
+.mb_20 {
+    margin-bottom: 20px;
+}
 
+.mb_30 {
+    margin-bottom: 30px;
+}
+
+.mb_40 {
+    margin-bottom: 40px;
+}
+
+.mb_100 {
+    margin-bottom: 100px;
+}

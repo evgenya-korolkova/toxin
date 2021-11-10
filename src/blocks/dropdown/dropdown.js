@@ -53,7 +53,7 @@ export class Dropdown {
 
         //  клик мыши, Enter (кнопка Очистить)
         //  клик мыши, Enter (кнопка Применить)
-        if (this.type === "guests") {
+        if (this.type === 'guests') {
             // кнопка Очистить
             this.handleBtnCleanClick = this.handleBtnCleanClick.bind(this)
             this.btnClean.addEventListener('click', this.handleBtnCleanClick)
@@ -107,7 +107,7 @@ export class Dropdown {
             }
         }
 
-        if (this.type === "rooms") {
+        if (this.type === 'rooms') {
             this.data[key] = value.innerText
             this.fillInputValue()
         }
@@ -141,7 +141,7 @@ export class Dropdown {
         this.block.classList.add('dropdown_open')
 
         // при показе списка восстановить значения из data (для гостей м.б. не совпадение, когда данне изменили, а Применить не нажали)
-        if (this.type === "guests") {
+        if (this.type === 'guests') {
             this.fillItemValue()
             this.setBtnStatus()
         }
@@ -162,10 +162,10 @@ export class Dropdown {
     }
 
     fillInputValue() {
-        let value =""
+        let value = ''
         let count = 0
 
-        if (this.type === "guests") {
+        if (this.type === 'guests') {
             for (let key in this.data) {
                 count = count + +this.data[key]
             }
@@ -179,9 +179,9 @@ export class Dropdown {
             } else if (count > 4) {
                 value = count + ' гостей'
             }
-        } // if (this.type === "guests")
+        } // if (this.type === 'guests')
 
-        if (this.type === "rooms") {
+        if (this.type === 'rooms') {
             for (let key in this.data) {
                 count = +this.data[key]
 
@@ -227,7 +227,7 @@ export class Dropdown {
 
             // после 2-ой запятой все удалить и поставить ...
 
-        } // if (this.type === "rooms") 
+        } // if (this.type === 'rooms') 
 
         this.input.innerText = value
     }
@@ -251,7 +251,7 @@ export class Dropdown {
         })
 
         // кнопка Очистить
-        if (this.type === "guests") {
+        if (this.type === 'guests') {
             if (count === 0) {
                 this.btnClean.classList.add('dropdown__button-clean_hidden')
             } else {

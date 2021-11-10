@@ -95,31 +95,7 @@ button {
 }
 
 
-// ------------------- input margin-bottom -------------------
-.input_mb_10 {
-    margin-bottom: 10px;
-}
 
-.input_mb_16 {
-    margin-bottom: 16px;
-}
-
-.input_mb_20 {
-    margin-bottom: 20px;
-}
-
-.input_mb_30 {
-    margin-bottom: 30px;
-}
-
-.input_mb_40 {
-    margin-bottom: 40px;
-}
-
-
-.input_mb_130 {
-    margin-bottom: 170px;
-}
 
 
 // ------------------- layout-ui-kit -------------------
@@ -128,7 +104,7 @@ button {
     max-width: 1440px;
     margin: 0 auto;
     padding: 140px;
-    background-color: rgb(240, 212, 179);
+    // background-color: rgb(240, 212, 179);
 }
 
 .ui-logo {

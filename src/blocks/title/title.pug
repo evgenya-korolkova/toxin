@@ -1,0 +1,6 @@
+mixin title(title = '', mb = 0)
+
+    - var classes = mb > 0 ? 'title_mb_' + mb : ''
+
+    if title
+        .title.h3(class=classes)= title

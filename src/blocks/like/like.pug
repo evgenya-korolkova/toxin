@@ -1,12 +1,9 @@
 mixin like(count = 0, liked = false)
 
     - var classes = {}
-    - classes['like__button-liked'] = liked
+    - classes['like__button_liked'] = liked
 
     .like 
-        //- if title
-        //-     .like__title.h3= title
-
         .like__button(class=classes)
             .like__img
             .like__counter= count

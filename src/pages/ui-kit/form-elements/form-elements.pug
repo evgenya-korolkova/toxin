@@ -8,100 +8,85 @@ block variables
 
 block content
 
-    .row.row_hidden
-        .col
-            .input_mb_20
-                +text-field("text field", {placeholder: "ДД.ММ.ГГГГ", type: 'date'}, {color: "red"})
+    .row.mb_100
+        //----------------------- colum 1 -----------------------
+        .col_width_320
+            .mb_20
+                +text-field('text field', {placeholder: 'Email'})
 
-            .input_mb_20
-                +text-field("text field", {placeholder: "password", value: "This is pretty awesome", autofocus: true})
+            .mb_20
+                +text-field('text field', {value: 'This is pretty awesome', autofocus: true})
 
+            .mb_20
+                +text-field('masked text field', {placeholder: 'ДД.ММ.ГГГГ'})
+
+            .mb_40
+                +text-field('subscription text field', {placeholder: 'Email', value: 'Константин Кончтантиновичч Константинопольский'}, true)    
+
+            .mb_20
+                +dropdown('гости', 'guests')    
+
+            .mb_40
+                +dropdown('удобства номера', 'rooms')
+
+            .mb_20
+                +datepicker('date dropdown', 'date dropdown', 'fromto') 
+
+            .mb_40
+                +datepicker('filter date dropdown') 
+
+        //----------------------- colum 2 -----------------------
+        .col_width_266
             //- .input_mb_20
-            //-     +text-field("text field", {value: "Константин Кончтантиновичч Константинопольский"})
-            
-            //- .input_mb_20
-            //-     +subscr-text-field("subscription text field", {value: "Константин Кончтантиновичч Константинопольский"})    
+            //-     label.h3 Select<br>
+            //-         select
+            //-             option(value="1")= "HTML верстка верстка верстка"     
+            //-             option(value="2" )= "CSS"     
+            //-             option(value="3")= "JS"     
+            //-             option(value="4")= "PHP"  
 
-            //- .input_mb_30
-            //-     +dropdown("гости", {type: "guests"})    
-
-            .input_mb_20
-                +datepicker('date dropdown', '') 
-
-            form(action="") 
-                +datepicker('date dropdown', '') 
-                button(type="submit") Кнопка
-
-              
-
-            .input_mb_20
-                +text-field("text field", {placeholder: "Email"}, {color: "red"})       
-
-        .col
-
-            .input_mb_20
-                label.h3 Select<br>
-                    select
-                        option(value="1")= "HTML верстка верстка верстка"     
-                        option(value="2" )= "CSS"     
-                        option(value="3")= "JS"     
-                        option(value="4")= "PHP"  
-
-            .input_mb_20
-                +datepicker('filter date dropdown', '', 'filter')
-
-            .input_mb_40
-                +dropdown("удобства номера", {type: "rooms"})       
-
-            .input_mb_40
-                +checkbox(
-                    "checkbox buttons", 
-                    "rules",
-                    [
+            +title('checkbox buttons')
+            .mb_40
+                +checkbox([
                         {text: 'Можно курить', checked: false}, 
                         {text: 'Можно с питомцами', checked: true}, 
                         {text: 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)', checked: true}
                     ])   
 
-            .input_mb_40
-                +checkbox(
-                    "rich checkbox buttons", 
-                    "access",
-                    [
-                        {text: 'Широкий коридор', descr: 'Ширина коридоров в номере не&nbsp;менее&nbsp;91&nbsp;см.', checked: true}, 
-                        {text: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false}
-                    ], 
-                    "rich")                          
+            +title('radio buttons')
+            .mb_40
+                +radio()
 
+            +title('toggle')
+            .mb_10
+                +toggle('special', 'Получать спецпредложения') 
 
-            .input_mb_40
-                +radio('radio buttons', 'gender')
+            .mb_40
+                +toggle('offers', 'Получать спецпредложения', true)
 
-            .input_mb_10
-                +toggle('toggle', 'special', 'Получать спецпредложения') 
-
-            .input_mb_40
-                +toggle('', 'offers', 'Получать спецпредложения', true)
-
-
-            .input_mb_10
+            +title('like button')
+            .mb_10
                 +like(2)
 
-            .input_mb_40
+            .mb_40
                 +like(12, true)
 
-            .input_mb_10
-                +rate('rate button')
+            +title('rate button')
+            .mb_10
+                +rate()
 
-            .input_mb_40
-                +rate('', 4, false)
+            .mb_40
+                +rate(4, false)
 
+            +title('rich checkbox buttons')
+            .mb_40
+                +checkbox([
+                        {text: 'Широкий коридор', descr: 'Ширина коридоров в номере не&nbsp;менее&nbsp;91&nbsp;см.', checked: true}, 
+                        {text: 'Помощник для инвалидов', descr: 'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false}
+                    ], 'rich')   
 
-            .input_mb_40
-                +expand-checkbox(
-                    'expandable checkbox list', 
-                    'comfort',
-                    [
+            .mb_10
+                +expand-checkbox('expandable checkbox list', [
                         {text: 'Завтрак', checked: false}, 
                         {text: 'Письменный стол', checked: true}, 
                         {text: 'Стул для кормления', checked: true}, 
@@ -110,12 +95,11 @@ block content
                         {text: 'Шампунь', checked: false}
                     ]) 
 
-        .col
-            .input_mb_40
-                +slider(
-                    'range slider', 
-                    'price',
-                    {
+        //----------------------- colum 3 -----------------------
+        .col_width_266
+            +title('range slider', 23)
+            .mb_40
+                +slider('price', {
                         start: [5000, 10000],
                         step: 500,
                         range: {
@@ -124,51 +108,42 @@ block content
                         }
                     })
 
-            .input_mb_40    
-                +slider(
-                    'range slider',
-                    '',
-                    {
-                        start: [3000, 10000],
-                        step: 1000,
-                        range: {
-                            'min': 0,
-                            'max': 25000
-                        }
-                    })
-
-            .input_mb_16    
-                .h3= 'buttons'
-
-            .input_mb_30    
+            +title('buttons')
+            .mb_30 
                 +btn('Click me')
 
-            .input_mb_30    
+            .mb_30    
                 +btn('Click me', 'border')
 
-            .input_mb_30    
+            .mb_30    
                 +btn-text('Click me')
 
-            .input_mb_40    
+            .mb_40    
                 +btn('Перейти к оплате', 'submit')
 
-            .input_mb_40
-                +bullet-list('bullet list', [
+            +title('pagination')
+            .mb_40 
+                //- +pagination()   
+
+            +title('bullet list', 14)
+            .mb_40
+                +bullet-list([
                     'Нельзя с питомцами',
                     'Без вечеринок и мероприятий',
                     'Время прибытия — после 13:00, а&nbsp;выезд&nbsp;до&nbsp;12:00'
                 ])
 
-
     .row
-        .col-1
+        //----------------------- colum 1 -----------------------
+        .col_width_280
             +inform([
                 {img: 'smile.svg', text: 'Комфорт', descr: 'Шумопоглощающие стены'},
                 {img: 'house.svg', text: 'Удобство', descr: 'Окно в каждой из спален'},
                 {img: 'fire.svg', text: 'Уют', descr: 'Номер оснащён камином'}
             ])
 
-        .col-2
+        //----------------------- colum 2 -----------------------
+        .col_width_710
             +feedback({
                 photo: 'photo-1.jpg',
                 name: 'Мурад Сарафанов',
@@ -177,5 +152,4 @@ block content
                 count: 12,
                 liked: true
             })
-
     

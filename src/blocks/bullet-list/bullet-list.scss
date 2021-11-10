@@ -1,18 +1,14 @@
-.bullet-list__title {
-    margin-bottom: 16px;
-}
-
-.bullet-list__list-item{
+.bullet-list__item{
     position: relative;
     padding-left: 20px;
-
-    margin-bottom: 10px;
+    margin-bottom: 11px;
+    
     &:last-child {
         margin-bottom: 0px;
     }
 }
 
-.bullet-list__list-item:before {
+.bullet-list__item:before {
     position: absolute;
     content: '';
     height: 10px;

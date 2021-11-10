@@ -1,9 +1,0 @@
-mixin subscr-text-field(label="", attr={}, style={})
-
-    .subscr-text-field
-        label.subscr-text-field__label
-            if label
-                span.h3= label 
-                br
-            input.subscr-text-field__input.body(style=style)&attributes(attr)
-            button(type="submit").subscr-text-field__button    

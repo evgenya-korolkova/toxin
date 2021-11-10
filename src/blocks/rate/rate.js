@@ -2,7 +2,7 @@ export class Rate {
     constructor(block) {
         this.block = block
         this.rate = this.block.dataset.rate
-        this.enabled = this.block.classList.contains('rate-enabled')
+        this.enabled = this.block.classList.contains('rate_enabled')
 
         if (this.enabled) {
             this.getDOM()
@@ -29,9 +29,9 @@ export class Rate {
         // отобразить рейтинг
         this.stars.forEach((item) => {
             if (item.dataset.rate <= rate){
-                item.classList.add('rate__star-active')
+                item.classList.add('rate__star_active')
             } else {
-                item.classList.remove('rate__star-active')
+                item.classList.remove('rate__star_active')
             }
         })
     }

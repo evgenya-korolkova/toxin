@@ -1,8 +1,12 @@
-mixin text-field(label="", attr={}, style={})
+mixin text-field(label = '', attr = {}, isSubscr = false)
+
+    - var classes = {}
+    - classes['text-field__input_subscr'] = isSubscr
 
     .text-field
         label.text-field__label
-            if label
-                span.h3= label
-                br
-            input.text-field__input.body(style=style)&attributes(attr)
+            +label(label)
+            input.text-field__input.input.body(class=classes)&attributes(attr)
+
+        if (isSubscr)
+            button.text-field__button(type='submit')

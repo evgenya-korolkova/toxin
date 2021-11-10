@@ -1,11 +1,7 @@
-.radio__title {
-    margin-bottom: 17px;
-}
-
 .radio__label {
     display: inline-block;
-
     margin-right: 20px;
+    
     &:last-child {
         margin-right: 0;
     }
@@ -59,4 +55,3 @@
     color: $dark-shade-50;
     vertical-align: top;
 }
-

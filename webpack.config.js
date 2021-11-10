@@ -48,10 +48,10 @@ module.exports = {
 
     module: {
         rules: [
-            {
-                test: /\.html$/i,
-                use: ['html-loader']
-            },
+            // {
+            //     test: /\.html$/i,
+            //     use: ['html-loader']
+            // },
             // стили
             {
                 test: /\.css$/i,
@@ -81,7 +81,6 @@ module.exports = {
             },
             {
                 test: /\.pug$/i,
-                // use: ['pug-loader']
                 use: {
                         loader: 'pug-loader',
                         // options: {

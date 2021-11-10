@@ -10,6 +10,13 @@ export class Datepicker {
         this.addListener()
     }
 
+    getDOM() {
+        this.inputFrom = this.block.querySelector('[data-input="from"]')
+        this.inputTo = this.block.querySelector('[data-input="to"]')
+        this.inputFilter = this.block.querySelector('[data-input="filter"]')
+        this.inputReal = this.block.querySelector('.datepicker__input-real')
+    }
+
     initAirDatepicker() {
 
         const btnApply = {
@@ -95,13 +102,6 @@ export class Datepicker {
         if (this.adp.selectedDates.length > 0) {
             this.adp.btnClear.classList.remove('datepicker__btn-clear_hidden')
         }
-    }
-
-    getDOM() {
-        this.inputFrom = this.block.querySelector('.datepicker__input-custom[data-input="from"]')
-        this.inputTo = this.block.querySelector('.datepicker__input-custom[data-input="to"]')
-        this.inputFilter = this.block.querySelector('.datepicker__input-custom[data-input="filter"]')
-        this.inputReal = this.block.querySelector('.datepicker__input-real')
     }
 
     addListener() {

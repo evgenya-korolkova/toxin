@@ -1,13 +1,9 @@
-.checkbox__title {
-    margin-bottom: 17px;
-}
-
 .checkbox__label {
     position: relative;
     display: block;
-
     padding-left: 30px;
     margin-bottom: 12px;
+    
     &:last-child {
         margin-bottom: 0;
     }
@@ -70,4 +66,3 @@
     line-height: 1.17;
     color: $dark-shade-50;
 }
-

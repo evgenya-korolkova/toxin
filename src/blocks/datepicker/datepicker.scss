@@ -10,9 +10,8 @@
     align-items: flex-end;
 }
 
-.datepicker__label_width_150 {
-    // width: 47%;
-    width: 150px;
+.datepicker__label_width_50 {
+    width: calc(50% - 10px);
 }
 
 .datepicker__input-custom {
@@ -127,10 +126,12 @@
     border-radius: 50%;
 }
 
+// ховер для уже выбранных ячеек
+.air-datepicker-cell.-day-.-selected-.-focus-:after,
 .air-datepicker-cell.-day-.-in-range-.-focus-:after {
     position: absolute;
-    // left: 0px;
-    // top: 0px;
+    left: 0px;
+    top: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -180,8 +181,8 @@
 .air-datepicker-cell.-day-.-current-:before,
 .air-datepicker-cell.-day-.-selected-:before {
     position: absolute;
-    // left: 0px;
-    // top: 0px;
+    left: 0px;
+    top: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -219,10 +220,10 @@
 
 .air-datepicker-button {
     height: auto;
-}
 
-.air-datepicker-button:hover {
-    background: none;
+    &:hover {
+        background: none;
+    }
 }
 
 .datepicker__btn-apply {

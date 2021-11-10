@@ -1,8 +1,5 @@
-mixin slider(title = '', name = '', options={})
+mixin slider(name = '', options = {})
 
     .slider(data-name=name data-options=options)
-        if title
-            .slider__title.h3= title
-
         .slider__slider
         .slider__tooltip.h3
