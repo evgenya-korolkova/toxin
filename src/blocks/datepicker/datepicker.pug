@@ -4,8 +4,6 @@ mixin datepicker(label1 = '', label2 = '', dpType = 'filter')
 
     .datepicker(data-type=dpType)
 
-        input.datepicker__input-real.input.body(readonly tabindex='-1')
-
         if (dpType === 'filter')
             label.datepicker__label
                 +label(label1)
@@ -20,3 +18,5 @@ mixin datepicker(label1 = '', label2 = '', dpType = 'filter')
                 label.datepicker__label.datepicker__label_width_50
                     +label(label2)
                     button.datepicker__input-custom.input.body(type='button' data-input='to') ДД.ММ.ГГГГ
+        
+        input.datepicker__input-real.input.body(readonly tabindex='-1')

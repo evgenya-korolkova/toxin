@@ -5,9 +5,12 @@
 }
 
 .datepicker__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+
+    @media (min-width: 360px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
 }
 
 .datepicker__label_width_50 {
@@ -43,7 +46,7 @@
 
 // ------------------------ AIR DATEPICKER ------------------------ 
 .air-datepicker {
-    width: 320px;
+    // width: 320px;
     box-sizing: border-box;
 
     border-radius: 4px;
@@ -226,10 +229,12 @@
     }
 }
 
-.datepicker__btn-apply {
+//  ---------------- CUSTOM ----------------
+
+.air-datepicker__btn-apply {
     margin-left: auto;
 }
 
-.datepicker__btn-clear_hidden {
+.air-datepicker__btn-clear_hidden {
     display: none;
 }
