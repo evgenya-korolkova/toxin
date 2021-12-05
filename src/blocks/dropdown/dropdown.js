@@ -1,15 +1,14 @@
 export class Dropdown {
-    constructor(block) {
+    constructor(block, data) {
         this.block = block
         this.type = block.dataset.type
-        this.data = JSON.parse(block.dataset.data)
+        this.data = data ? data : JSON.parse(block.dataset.data)
 
         this.getDOM()
-
+        this.initEvent()
         this.addListener()
-
-        this.fillItemValue()
-        this.fillInputValue()
+        this.setData()
+        this.setInputValue()
         this.setBtnStatus()
     }
 
@@ -24,6 +23,15 @@ export class Dropdown {
 
         this.btnApply = this.block.querySelector('.dropdown__button-apply')
         this.btnClean = this.block.querySelector('.dropdown__button-clean')
+    }
+
+    initEvent() {
+        this.event = new CustomEvent('change', {
+            detail: {data: {}},
+            bubbles: true,
+            cancelable: true,
+            composed: false,
+        });
     }
 
     addListener() {
@@ -63,10 +71,12 @@ export class Dropdown {
         }
     }
 
+    // клик мыши, Enter (input)
     handleInputClick() {
         this.toggle() // показать/скрыть выпад.список
     }
 
+     // Esc (block)
     handleBlockEsc(e) {
         if (e.key === 'Escape' && this.isOpen) {
             this.input.focus()
@@ -74,6 +84,7 @@ export class Dropdown {
         }
     }
 
+    // потеря фокуса (block)
     handleBlockFocusOut(e) {
         // console.log('FOCUSOUT -> ' + e.relatedTarget)
         const isOutBlock = e.relatedTarget === null || (!e.relatedTarget.closest('.dropdown_open'))
@@ -82,11 +93,13 @@ export class Dropdown {
         }
     }
 
+    // переопределение поведения label
     handleLabelClick(e) {
         this.input.focus()
         e.preventDefault()
     }
 
+    // нажатие кнопки +/-
     handleBtnValueClick(e) {
         const btn = e.currentTarget
         const btnType = btn.innerText
@@ -109,10 +122,13 @@ export class Dropdown {
 
         if (this.type === 'rooms') {
             this.data[key] = value.innerText
-            this.fillInputValue()
+            this.setInputValue()
+            // отправить событие об изменении данных
+            this.sendEvent()
         }
     }
 
+    // нажатие кнопки Очистить
     handleBtnCleanClick() {
         this.values.forEach(function(item) {
             item.innerText = 0
@@ -122,37 +138,44 @@ export class Dropdown {
         this.setBtnStatus()
     }
 
+    // нажатие кнопки Применить
     handleBtnApplyClick() {
         this.values.forEach((item) => {
             this.data[item.dataset.key] = item.innerText
         })
-        this.fillInputValue()
+        this.setInputValue()
+        // отправить событие об изменении данных
+        this.sendEvent()
     }
 
+    // проверка открыт ли выпад. список (по классу 'dropdown_open')
     get isOpen() {
         return this.block.classList.contains('dropdown_open')
     }
 
+    // показать/скрыть выпад.список
     toggle() {
         this.isOpen ? this.close() : this.open()
     }
 
+    // открыть выпад. список
     open() {
         this.block.classList.add('dropdown_open')
 
         // при показе списка восстановить значения из data (для гостей м.б. не совпадение, когда данне изменили, а Применить не нажали)
         if (this.type === 'guests') {
-            this.fillItemValue()
+            this.setData()
             this.setBtnStatus()
         }
     }
 
+    // закрыть выпад. список
     close() {
         this.block.classList.remove('dropdown_open')
-        // console.log('close DROPDOWN')
     }
 
-    fillItemValue() {
+    // установить значения счетчиков
+    setData() {
         for (let key in this.data) {
             const value = this.dropdown.querySelector('.dropdown__list-item-value[data-key="' + key + '"]')
             if (value) {
@@ -161,16 +184,21 @@ export class Dropdown {
         }
     }
 
-    fillInputValue() {
+    // установить значение input
+    setInputValue() {
         let value = ''
         let count = 0
+        let m = 0
+        let str = ''
 
         if (this.type === 'guests') {
             for (let key in this.data) {
-                count = count + +this.data[key]
+                if (key !== 'младенцы') {
+                    count = count + +this.data[key]
+                } else {
+                    m = +this.data[key]
+                }
             }
-
-            value = 'Сколько гостей'
 
             if (count === 1) {
                 value = count + ' гость'
@@ -179,13 +207,30 @@ export class Dropdown {
             } else if (count > 4) {
                 value = count + ' гостей'
             }
+
+            if (m === 1) {
+                str = m + ' младенец'
+            } else if ((m >= 2) && (m <= 4)) {
+                str = m + ' младенца'
+            } else if (m > 4) {
+                str = m + ' младенцев'
+            }
+
+            if (str !== '') {
+                value = (value === '') ? str : value + ', ' + str
+            }
+
+            if (value === '') {
+                value = 'Сколько гостей'
+            }
+
         } // if (this.type === 'guests')
 
         if (this.type === 'rooms') {
             for (let key in this.data) {
                 count = +this.data[key]
 
-                let str = ''
+                str = ''
 
                 if (key === 'спальни') {
                     if (count === 1) {
@@ -215,8 +260,14 @@ export class Dropdown {
                     }
                 }
 
-                if (str != '') {
-                    value = (value === '') ? str : value + ', ' + str
+                if (str !== '') {
+                    if (value.includes(',')) {
+                        // добавить '...', если заполнены 3 поля; если заполнены 2 поля, то '...' не добавлять (?) 
+                        value = value + '...'
+                        break //имеет значение для 4-х полей и более
+                    } else {
+                        value = (value === '') ? str : value + ', ' + str
+                    }
                 }
 
             } // for (let key in data)
@@ -225,13 +276,18 @@ export class Dropdown {
                 value = 'Сколько комнат'
             }
 
-            // после 2-ой запятой все удалить и поставить ...
-
         } // if (this.type === 'rooms') 
 
         this.input.innerText = value
     }
 
+    // отправить событие об изменении данных
+    sendEvent() {
+        this.event.detail.data = this.data
+        this.block.dispatchEvent(this.event);
+    }
+
+    // установить видимость/доступность кнопок '+', '-', Очистить, Применить
     setBtnStatus() {
         let count = 0
 
@@ -259,4 +315,5 @@ export class Dropdown {
             }
         }
     }
+
 }
