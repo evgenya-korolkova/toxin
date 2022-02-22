@@ -2,6 +2,14 @@
     position: relative;
 }
 
+.dropdown_disable {
+    pointer-events: none;
+
+    .dropdown__input:after {
+        display: none;
+    }
+}
+
 .dropdown__input {
     position: relative;
     padding-right: $input-height;

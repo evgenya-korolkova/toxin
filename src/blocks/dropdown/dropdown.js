@@ -3,7 +3,7 @@ export class Dropdown {
         this.block = block
         this.type = block.dataset.type
         this.data = data ? data : JSON.parse(block.dataset.data)
-
+console.log(this.data)
         this.getDOM()
         this.initEvent()
         this.addListener()
@@ -314,6 +314,12 @@ export class Dropdown {
                 this.btnClean.classList.remove('dropdown__button-clean_hidden')
             }
         }
+    }
+
+    disable() {
+        this.input.tabIndex = '-1'
+        // this.input.disabled = true //проверить
+        this.block.classList.add('dropdown_disable')
     }
 
 }

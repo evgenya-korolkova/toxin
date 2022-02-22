@@ -18,6 +18,7 @@ export class Datepicker {
         this.inputTo = this.block.querySelector('[data-input="to"]')
         this.inputFilter = this.block.querySelector('[data-input="filter"]')
         this.inputReal = this.block.querySelector('.datepicker__input-real')
+        this.labels = this.block.querySelectorAll('.datepicker__label')
         // this.btnClear =  this.adp.$datepicker.querySelector('.air-datepicker__btn-clear') см. initAirDatepicker()
     }
 
@@ -38,6 +39,7 @@ export class Datepicker {
             onClick: (dp) => {
                 dp.dp.applyDate()
                 dp.dp.sendEvent()
+                dp.hide()
             }
         }
         
@@ -168,6 +170,18 @@ export class Datepicker {
         } else {
             this.adp.$buttons.classList.add('air-datepicker--buttons_hidden')
         }
+    }
+
+    disable() {
+        if (this.type === 'filter') {
+            this.inputFilter.tabIndex = '-1'
+            // this.inputFilter.disabled = 'true' //проверить "disabled"
+        } else {
+            this.inputFrom.tabIndex = '-1'
+            this.inputTo.tabIndex = '-1'
+        }
+
+        this.block.classList.add('datepicker_disable')
     }
 
 }

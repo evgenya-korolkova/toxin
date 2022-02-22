@@ -4,6 +4,14 @@
     position: relative; // для input-real
 }
 
+.datepicker_disable {
+    pointer-events: none;
+
+    .datepicker__input-custom:after {
+        display: none;
+    }
+}
+
 .datepicker__wrapper {
 
     @media (min-width: 360px) {
