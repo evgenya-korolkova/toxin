@@ -1,0 +1,27 @@
+mixin card-registr()
+
+    .card-registr.card 
+        .mb_20
+            .h1 Регистрация аккаунта
+        form
+            .mb_10
+                +text-field('', {placeholder: 'Имя'})
+            .mb_10
+                +text-field('', {placeholder: 'Фамилия'})
+            .mb_20  
+                +radio()
+            .mb_15
+                +text-field('дата рождения', {type: 'masked', placeholder: 'ДД.ММ.ГГГГ'})
+            .mb_10
+                +text-field('данные для входа в сервис', {typt: 'email', placeholder: 'Email'})
+            .mb_10
+                +text-field('', {typt: 'password', placeholder: 'Пароль'})
+            .mb_20  
+                +toggle('', 'Получать спецпредложения')
+            .mb_30
+                +btn('перейти к оплате', 'submit')
+
+            .card-registr__button
+                .card-registr__button-text.body Уже есть аккаунт на&nbsp;Toxin
+                .card-registr__button-button
+                    +btn('войти', 'border')
