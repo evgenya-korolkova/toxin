@@ -1,0 +1,119 @@
+.card-order {
+    position: relative;
+}
+
+.card-order__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    // border: 1px solid #000;
+}
+
+.card-order__number-text {
+    font-weight: 700;
+    color: $dark-shade-100;
+}
+
+.card-order__number-value {
+    // display: inline-block;
+    margin-right: 8px;
+}
+
+.card-order__number-category {
+    color: $purple;
+}
+
+.card-order__price-value {
+    font-weight: 700;
+    color: $dark-shade-50;
+}
+
+.card-order__price-text {
+    font-weight: 400;
+    color: $dark-shade-50;
+    text-transform: none;
+}
+
+.card-order__info-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    margin-bottom: 10px;
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+.card-order__info-line-text {
+    line-height: 1.29;
+    margin-right: 4px;
+}
+
+// .card-order__info-line-info-value
+.card-order__info-line-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    // padding-left: 5px;
+
+    flex: none;
+    width: 100px;
+}
+
+.card-order__info-line-info {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid $dark-shade-25;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    color: $dark-shade-25;
+
+    cursor: pointer;
+    margin-right: 5px;
+    flex-shrink: 0;
+}
+
+.card-order__total {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 19px;
+    font-weight: 700;
+    color: $dark-shade-100;
+    line-height: 0.8;
+}
+
+.card-order__total-space {
+    // flex: 1;
+    flex-grow: 1;
+    border-bottom: 1px dotted $dark-shade-25;
+}
+
+.card-order__message {
+    display: none;
+    text-align: center;
+    color: $green;
+    margin-bottom: 25px;
+
+    font-size: 15px;
+    font-weight: 700;
+    border-bottom: 1px solid $green;
+    border-top: 1px solid $green;
+    line-height: 3;
+    text-transform: uppercase;
+}
+
+.card-order__message_visible {
+    display: block;
+}
+
+.card-order__button_hidden {
+    display: none;
+}

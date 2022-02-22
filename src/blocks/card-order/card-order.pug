@@ -1,0 +1,73 @@
+mixin card-order()
+
+    - 
+        var data = {
+            number: '888',
+            category: 'люкс',
+            price: 9990,
+            service: 0,
+            adservice: 300,
+            discount: 2179,
+            amount: 39960,
+            total: 38081,
+            days: 4,
+            datefrom: '',
+            dateto: '',
+        }
+
+        data.datefrom = new Date(2021, 10, 19)
+        data.dateto = new Date(2021, 10, 23)
+        var timeDiff = Math.abs(data.dateto.getTime() - data.datefrom.getTime());
+        //- var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+        var diffDays = Math.trunc(timeDiff / (1000 * 3600 * 24)); 
+        //- console.log(data.datefrom)
+
+    .card-order.card 
+
+        .card-order__message номер забронирован
+
+        .mb_15
+            .card-order__title
+                .card-order__number
+                    span.card-order__number-text.body № 
+                    span.card-order__number-value.h1= data.number
+                    span.card-order__number-category.h3= data.category
+                .card-order__price
+                    span.card-order__price-value.body !{(data.price.toLocaleString('ru-RU'))}&#8381;
+                    span.card-order__price-text.h3  в сутки
+
+        form  
+            .mb_15
+                +datepicker('прибытие', 'выезд', 'fromto')
+            .mb_20  
+                +dropdown('гости')
+
+            .mb_35 
+                .card-order__info 
+                    .card-order__info-line
+                        .card-order__info-line-text.body(data-amount)!= `${(data.price.toLocaleString('ru-RU'))}&#8381; x ${diffDays} суток`
+                        .card-order__info-line-value.body(data-amount) !{(data.amount.toLocaleString('ru-RU'))}&#8381;
+
+                    .card-order__info-line
+                        .card-order__info-line-text.body(data-service)!= `Сбор за услуги: скидка ${(data.discount.toLocaleString('ru-RU'))}&#8381;`
+                        .card-order__info-line-wrap
+                            .card-order__info-line-info(title='Информация по услугам') i
+                            .card-order__info-line-value(data-service).body !{(data.service.toLocaleString('ru-RU'))}&#8381;
+                            
+                    .card-order__info-line
+                        .card-order__info-line-text(data-adservice).body= 'Сбор за дополнительные услуги'
+                        .card-order__info-line-wrap
+                            .card-order__info-line-info(title='Информация по доп. услугам') i
+                            .card-order__info-line-value(data-adservice).body !{(data.adservice.toLocaleString('ru-RU'))}&#8381;
+
+            .mb_25 
+                .card-order__total
+                    .card-order__total-text Итого
+                    .card-order__total-space 
+                    .card-order__total-value !{(data.total.toLocaleString('ru-RU'))}&#8381;
+
+            .card-order__button
+                +btn('забронировать', 'submit')
+
+
+
