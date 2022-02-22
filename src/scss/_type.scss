@@ -47,21 +47,22 @@
 
 .card {
     max-width: 380px;
-    padding: 40px 30px 30px;
+    padding: 40px 15px 30px;
     
     border-radius: 4px;
     border: 1px solid rgba(0, 0, 0, 0.12);
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+
+    @media (min-width: 400px) {
+        padding: 40px 30px 30px;
+    }
 
     // Медиа запрос для планшетов
     @media (min-width: 768px) {
-        // padding: 0 30px;
-        // max-width: 900px;
     }
 
     // Медиа запрос для десктопов
     @media (min-width: 1200px) {
-        // padding: 0;
     }
 }

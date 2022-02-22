@@ -1,0 +1,12 @@
+mixin card-find()
+
+    .card-find.card 
+        .mb_15
+            .h1 Найдём номера под ваши пожелания
+        form    
+            .mb_20
+                +datepicker('прибытие', 'выезд', 'fromto')
+            .mb_30  
+                +dropdown('гости')
+
+            +btn('подобрать номер', 'submit')

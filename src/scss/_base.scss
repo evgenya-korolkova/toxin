@@ -42,7 +42,7 @@ img {
     // height: auto;
 }
 
-button, input{
+button, input {
     padding: 0;
     border: none;
     font-family: inherit;
@@ -100,15 +100,61 @@ button {
 
 // ------------------- layout-ui-kit -------------------
 .ui-container {
-    position: relative;
+    // position: relative;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 140px;
-    // background-color: rgb(240, 212, 179);
+    background-color: rgb(240, 212, 179);
+
+    padding: 0px 10px;
+
+    // Медиа запрос для планшетов
+    @media (min-width: 768px) {
+        // padding: 0px 30px;
+        // max-width: 900px;
+        padding: 140px 140px;
+    }
+
+    // Медиа запрос для десктопов
+    @media (min-width: 1200px) {
+        padding: 140px 140px;
+    }
 }
 
 .ui-logo {
     position: absolute;
     left: 30px;
     top: 30px;
+}
+
+// ------------------- margin-bottom -------------------
+.mb_10 {
+    margin-bottom: 10px;
+}
+
+.mb_15 {
+    margin-bottom: 15px;
+}
+
+.mb_20 {
+    margin-bottom: 20px;
+}
+
+.mb_25 {
+    margin-bottom: 25px;
+}
+
+.mb_30 {
+    margin-bottom: 30px;
+}
+
+.mb_35 {
+    margin-bottom: 35px;
+}
+
+.mb_40 {
+    margin-bottom: 40px;
+}
+
+.mb_100 {
+    margin-bottom: 100px;
 }
